@@ -1,0 +1,9 @@
+/Volumes/datadisk/tech/github/gfan8w/rusthellosample/rustHello/src/macro_sample/debug/deps/ppv_lite86-f25515fd018ce347.rmeta: /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/lib.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/soft.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/types.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/x86_64/mod.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/x86_64/sse2.rs
+
+/Volumes/datadisk/tech/github/gfan8w/rusthellosample/rustHello/src/macro_sample/debug/deps/ppv_lite86-f25515fd018ce347.d: /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/lib.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/soft.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/types.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/x86_64/mod.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/x86_64/sse2.rs
+
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/lib.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/soft.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/types.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/x86_64/mod.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/ppv-lite86-0.2.15/src/x86_64/sse2.rs:

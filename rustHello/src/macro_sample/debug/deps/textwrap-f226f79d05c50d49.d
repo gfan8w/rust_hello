@@ -1,0 +1,9 @@
+/Volumes/datadisk/tech/github/gfan8w/rusthellosample/rustHello/src/macro_sample/debug/deps/textwrap-f226f79d05c50d49.rmeta: /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/lib.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/indentation.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/splitting.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/core.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/core/optimal_fit.rs
+
+/Volumes/datadisk/tech/github/gfan8w/rusthellosample/rustHello/src/macro_sample/debug/deps/textwrap-f226f79d05c50d49.d: /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/lib.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/indentation.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/splitting.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/core.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/core/optimal_fit.rs
+
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/lib.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/indentation.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/splitting.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/core.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/textwrap-0.13.4/src/core/optimal_fit.rs:

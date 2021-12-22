@@ -1,0 +1,10 @@
+/Volumes/datadisk/tech/github/gfan8w/rusthellosample/rustHello/src/macro_sample/debug/deps/rand_core-759b746ff53560c3.rmeta: /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/lib.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/block.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/error.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/impls.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/le.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/os.rs
+
+/Volumes/datadisk/tech/github/gfan8w/rusthellosample/rustHello/src/macro_sample/debug/deps/rand_core-759b746ff53560c3.d: /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/lib.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/block.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/error.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/impls.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/le.rs /Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/os.rs
+
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/lib.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/block.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/error.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/impls.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/le.rs:
+/Users/mmac/.cargo/registry/src/mirrors.sjtug.sjtu.edu.cn-7a04d2510079875b/rand_core-0.6.3/src/os.rs:

@@ -1,0 +1,9 @@
+目录下有  rary.rs 源文件
+通过命令：
+`rustc --crate-type=lib rary.rs`
+编译出一个lib库：library.rlib
+
+在其他程序中引用，并编译：
+rustc executable.rs --extern rary=library.rlib --edition=2018
+
+
