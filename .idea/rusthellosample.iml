@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/rustHello/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/visibilitytest/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/httpie/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/thumbor/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
