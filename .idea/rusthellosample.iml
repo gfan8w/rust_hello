@@ -16,6 +16,7 @@
       <sourceFolder url="file://$MODULE_DIR$/syncmacro/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/syncmacro/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/bs58test/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/fully-qualified-access/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/macro_export/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/no_core_code/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/no_std_formatter/src" isTestSource="false" />

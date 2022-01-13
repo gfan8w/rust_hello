@@ -15,6 +15,7 @@ members = [
     'turbofish_demo',
     'no_std_formatter',
     'no_core_code',
+    'fully-qualified-access',
 ]
 
 
