@@ -127,8 +127,8 @@ impl ToDo {
 
 pub fn run(){
     // 运行时 需要加参数
-    let action = std::env::args().nth(1).expect("please specify an action");
-    let item= std::env::args().nth(2).expect("please specify and value");
+    let action = std::env::args().nth(1).expect("please specify an action：add or complete");
+    let item= std::env::args().nth(2).expect("please specify and value: any string");
 
     let mut data =ToDo::new().expect("init db.txt failed");
 

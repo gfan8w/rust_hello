@@ -10,6 +10,7 @@
 /// 3）在lib.rs中放置 `mod front_of_house2`;使得 restaurant2 能找到它
 /// 4）在外部其他地方可以使用 hosting2 和eat_at_restaurant，但无法访问front_of_house2
 
+//在外部其他地方可以使用 hosting2 和eat_at_restaurant，但无法访问front_of_house2
 pub use super::front_of_house2::hosting2;
 
 pub fn eat_at_restaurant() {

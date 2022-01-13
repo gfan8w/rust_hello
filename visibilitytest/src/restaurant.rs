@@ -20,6 +20,6 @@ pub fn eat_at_restaurant() {
     hosting::add_to_waitlist();
     hosting::add_to_waitlist();
 
-    //没有使用use，就只能全名称限定的访问
+    //这里访问cooking，没有使用use，就只能全名称限定的访问
     super::restaurant::front_of_house::cooking::heat_steak();
 }

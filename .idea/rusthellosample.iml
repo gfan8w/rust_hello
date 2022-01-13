@@ -2,12 +2,22 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/add-one/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/featuresample/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rustHello/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/visibilitytest/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/httpie/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/thumbor/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/queryer/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/queryer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/implfortuples/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/implfortuples/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/asynctokio/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/asynctokio/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/syncmacro/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/syncmacro/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bs58test/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/macro_export/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/turbofish_demo/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

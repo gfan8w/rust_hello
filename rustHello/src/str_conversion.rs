@@ -1,5 +1,6 @@
 use std::str;
 
+/// String  str vec<u8> vec<char> 相互转换
 pub fn run() {
     // -- FROM: vec of chars --
     let src1: Vec<char> = vec!['j', '{', '"', 'i', 'm', 'm', 'y', '"', '}'];

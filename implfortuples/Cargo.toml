@@ -1,0 +1,11 @@
+[package]
+name = "implfortuples"
+version = "0.1.0"
+edition = "2021"
+
+[[example]]
+name = "implfortupletest"
+
+
+[dependencies]
+impl-trait-for-tuples = "0.2.1"

@@ -93,6 +93,7 @@ pub fn run(){
 
     let a1=Rc::new(List2::Cons(5,Rc::new(List2::Cons(10,Rc::new(List2::Nil)))));
     println!("Count after creating a = {}", Rc::strong_count(&a1));
+
     let b1 =List2::Cons(3,Rc::clone(&a1));
     println!("Count after creating b = {}", Rc::strong_count(&a1));
     {

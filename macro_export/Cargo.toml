@@ -1,0 +1,10 @@
+[package]
+name = "macro_export"
+version = "0.1.0"
+edition = "2021"
+description ="演示 workspace，add-one是在workspace里定义的，这里还引入了 rand 随机库 在 rusthello里引入了 add-one这个 crate；这里还演示了 如在定义宏，在外部的crate引用这个宏，宏定义在 bar_macro 里"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.4"

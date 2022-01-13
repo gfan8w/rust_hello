@@ -35,6 +35,14 @@ mod externallibsample;
 mod visibilitytestOuter;
 mod entry;
 mod matchtest;
+mod enum_discriminant_repr;
+mod binary_search_sample;
+mod formatterr;
+mod formatterr_no_std_2;
+mod formatterr_no_std_3;
+mod formatterr_no_std_4;
+
+// ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 
 
 pub fn main() {

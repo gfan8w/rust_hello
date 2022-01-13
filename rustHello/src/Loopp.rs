@@ -72,6 +72,13 @@ pub fn run() {
     //println!("{:?}",mylikes)
     // 这句话 ^ 会报错
 
+    let v = vec!["a".to_string(), "b".to_string()];
+    for s in v.into_iter() {
+        // s has type String, not &String, 如果用iter()迭代，这里的s 是 &String，因为 iter()迭代是引用里面的元素
+        println!("{}", s);
+    }
+
+
 
     let mut rustacean = vec!["Bob","Ferris","Frank"];
     for ru in rustacean.iter_mut(){ // iter_mut 会生成一个可变的借用，可实现就地更改集合数据
@@ -80,7 +87,7 @@ pub fn run() {
             _ =>"Hello "
         }
     }
-    println!("{:?}", rustacean)
+    println!("{:?}", rustacean);
 
     // &mut "Ferris" =>{
     //                 let mut bb=String::new();
@@ -88,6 +95,13 @@ pub fn run() {
     //                 bb +=*ru;
     //                 bb+=" There is a rustacean among us!";
     //                 bb.as_str()},
+
+
+    //死循环
+    /*let ones = std::iter::repeat(1);
+    let least = ones.min().unwrap(); // Oh no! An infinite loop!
+    // `ones.min()` causes an infinite loop, so we won't reach this point!
+    println!("The smallest number one is {}.", least);*/
 
 }
 

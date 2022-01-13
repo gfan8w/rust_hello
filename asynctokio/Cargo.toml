@@ -1,0 +1,36 @@
+[package]
+name = "asynctokio"
+version = "0.1.0"
+edition = "2021"
+
+[[example]]
+name = "asynctest"
+
+[[example]]
+name = "async_size_of"
+
+[[example]]
+name = "async_sequal"
+
+
+[[example]]
+name = "futures_study"
+
+[[example]]
+name = "futures_study2"
+
+[[example]]
+name = "futures_study3"
+
+[[example]]
+name = "futures_join_select"
+
+[[example]]
+name = "futures_combinator1"
+
+
+
+[dependencies]
+tokio = { version = "1", features = ["full"] } # 异步处理库
+chrono = "0.4"
+futures = { version = "0.3", features = ["thread-pool"] }

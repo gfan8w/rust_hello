@@ -2,11 +2,17 @@
 
 members = [
     "rustHello",
-    "add-one",
+    "macro_export",
     "visibilitytest",
     "featuresample",
     "httpie",
     "thumbor",
+    "queryer",
+    "implfortuples",
+    "syncmacro",
+    "asynctokio",
+    "bs58test",
+    'turbofish_demo',
 ]
 
 

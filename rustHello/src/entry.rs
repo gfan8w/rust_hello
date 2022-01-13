@@ -6,8 +6,8 @@ use std::cmp::{min, max}; //同时引入 min，max
 use std::collections::HashMap;
 use crate::front_of_house::pubStruct::CloseBox;
 
-//使用外部的crate
-use add_one;
+//使用外部的crate，从外部引入宏
+use macro_export;
 
 //引入父级的内容，否则的话， Ferris::run(); 这些调用都需要加上 super::Ferris::run(); 或者加上 crate::
 use super::*;   // *, 英文叫：the glob operator
@@ -329,14 +329,28 @@ pub fn main() {
     str_conversion::run();
 
     //演示 workspace
-    let add_one_result=add_one::add_one(4);
+    let add_one_result=macro_export::add_one(4);
     println!("add-one from another module:{}",add_one_result);
+
+    //演示 外部模块的的 宏 引入, barz! 这个宏 上需要添加 #[macro_export] ，这里才可以使用它
+    let barz_3 = macro_export::barz!(3);
+    println!("barz in macro of another crate:{}",barz_3);
 
     // 演示外部模块可见性
     visibilitytestOuter::run();
     //演示match的模式匹配
     matchtest::run();
+    //枚举的变体
+    enum_discriminant_repr::run();
 
+    //binary_search
+    binary_search_sample::run();
+
+    //自己写一个formatter
+    //no_std的几个例子
+    formatterr::run();
+    formatterr_no_std_2::run();
+    formatterr_no_std_3::run();
 
 
 
@@ -428,4 +442,8 @@ fn g2() -> Result<i32, bool>{
 fn run_g(i: i32){
     let rd =f(6);
 }
+
+
+
+
 
