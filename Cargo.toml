@@ -4,7 +4,7 @@ members = [
     "rustHello",
     "macro_export",
     "visibilitytest",
-    "featuresample",
+    "feature_sample_start",
     "httpie",
     "thumbor",
     "queryer",
@@ -16,6 +16,16 @@ members = [
     'no_std_formatter',
     'no_core_code',
     'fully-qualified-access',
+    'feature_sample_local_remote',
+    'feature-sample-memorydisk',
+    'cfg_attr_sample',
+
+
+
+
+
+
+
 ]
 
 

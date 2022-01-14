@@ -1,0 +1,19 @@
+[package]
+name = "feature_sample_local_remote"
+version = "0.3.5"
+edition = "2021"
+
+#这里主要是为了演示 optional，带`optional`的默认不会被编译
+[dependencies.memorydisk]
+path ="../feature-sample-memorydisk"
+package="feature-sample-memorydisk"
+default-features =false         #这里不要写错了，少了 `s` 结尾，查了好半天~~~~！！！！ 现在是中午 14点，困😪啊
+features =["disk"]              #这里不要写错了，少了 `s` 结尾，查了好半天~~~~！！！！ 现在是中午 14点，困😪啊
+optional =true
+# optional表示隐式的引入一个跟dependency同名的feature，其他feature要包含本例的feature才能编译通过，代码中可以使用 #[cfg(feature = "memorydisk")]，命令行中 --features memorydisk
+
+[features]
+default=["local_computer"]
+local_computer=[]
+remote_computer=["memorydisk"]  #这里包含了memorydisk 这个隐式feature
+cloud_computer=[]

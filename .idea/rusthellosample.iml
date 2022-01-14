@@ -2,7 +2,6 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/featuresample/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rustHello/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/visibilitytest/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/httpie/src" isTestSource="false" />
@@ -16,6 +15,10 @@
       <sourceFolder url="file://$MODULE_DIR$/syncmacro/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/syncmacro/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/bs58test/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfg_attr_sample/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/feature-sample-memorydisk/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/feature_sample_local_remote/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/feature_sample_start/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/fully-qualified-access/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/macro_export/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/no_core_code/src" isTestSource="false" />

@@ -1,0 +1,24 @@
+[package]
+name = "feature_sample_entry"
+version = "0.3.4"
+edition = "2021"
+
+
+#我们的库是 0.3.5版本，这里要求是0.3.1以上即可。我们把default-features关闭，即把那个库的 default 对应的 local_computer关闭，
+#然后我们用 features 引入了 remote_computer，如果不 disable default，因为那里有2个
+#可以尝试  default-features = false 和  features = ["remote_computer"] 注释掉，这时输出的是 `local_computer`，留着他们输出的是remote_computer
+[dependencies.local_or_remote]
+version="0.3.1"
+path="../feature_sample_local_remote"
+package="feature_sample_local_remote"
+default-features = false
+features = ["remote_computer"]          #这里使用remote_computer，请注意后面的一个optional的依赖，否则编译不通过，请看lib.rs上的注释
+
+
+
+[features]
+default=["webp", "ico"]
+webp =[]
+bmp =[]
+png =[]
+ico =["bmp", "png"]

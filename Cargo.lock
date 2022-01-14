@@ -342,6 +342,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
+name = "cfg_attr"
+version = "0.5.0"
+
+[[package]]
 name = "chrono"
 version = "0.4.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -615,8 +619,22 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "95765f67b4b18863968b4a1bd5bb576f732b29a4a28c7cd84c09fa3e2875f33c"
 
 [[package]]
-name = "featuresample"
+name = "feature-sample-memorydisk"
 version = "0.1.0"
+
+[[package]]
+name = "feature_sample_entry"
+version = "0.3.4"
+dependencies = [
+ "feature_sample_local_remote",
+]
+
+[[package]]
+name = "feature_sample_local_remote"
+version = "0.3.5"
+dependencies = [
+ "feature-sample-memorydisk",
+]
 
 [[package]]
 name = "ferris-says"
@@ -2310,7 +2328,9 @@ dependencies = [
 name = "rustHello"
 version = "0.1.0"
 dependencies = [
+ "cfg_attr",
  "color-backtrace",
+ "feature_sample_entry",
  "ferris-says",
  "httpie",
  "macro_export",

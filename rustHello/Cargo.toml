@@ -13,3 +13,20 @@ color-backtrace = { version = "0.5" }
 macro_export = { path = "../macro_export" }
 visibilitytest = { path = "../visibilitytest" }
 httpie = { path = "../httpie" }
+os_different ={path="../cfg_attr_sample", package="cfg_attr"}
+
+
+
+#这里演示feature的default、特定feature的情况，可以尝试 把 default-features = false 和 features =["ico"] 删除掉，看输出，会输出bmp 和 webp，
+#留着他们，表示要禁用default feature，使用 ico 这个feature，这时输出只有 bmp
+[dependencies.feature_sample_entry]
+path ="../feature_sample_start"
+package="feature_sample_entry"
+default-features = false
+features =["ico"]   #这里可以换 ico，bmp，png
+
+
+
+
+
+

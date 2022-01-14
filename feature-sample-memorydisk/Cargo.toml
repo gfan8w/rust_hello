@@ -1,0 +1,14 @@
+[package]
+name = "feature-sample-memorydisk"
+version = "0.1.0"
+edition = "2021"
+description ="这里主要演示`optional`的含义，optional定义在引入这个crate的地方，即这里是在`feature_sample_local_remote`这个包那里"
+
+
+[dependencies]
+
+
+[features]
+default =["memory"]
+memory =[]
+disk =[]

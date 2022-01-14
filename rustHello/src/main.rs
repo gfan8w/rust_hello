@@ -23,12 +23,6 @@ mod ThreadChannell;
 mod ArraySlice;
 
 
-// 条件编译 模块引入，不同环境，有三个不同的文件：linux.rs, windows.rs,macos.rs
-#[cfg_attr(target_os = "linux", path = "linux.rs")]
-#[cfg_attr(windows, path = "windows.rs")]
-#[cfg_attr(target_os = "macos", path = "macos.rs")]
-mod osshow;
-
 mod macro_sample;
 mod str_conversion;
 mod externallibsample;
@@ -41,6 +35,7 @@ mod formatterr;
 mod formatterr_no_std_2;
 mod formatterr_no_std_3;
 mod formatterr_no_std_4;
+mod feature_select_sample;
 
 // ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 

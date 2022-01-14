@@ -12,6 +12,11 @@ use macro_export;
 //引入父级的内容，否则的话， Ferris::run(); 这些调用都需要加上 super::Ferris::run(); 或者加上 crate::
 use super::*;   // *, 英文叫：the glob operator
 
+//使用一个外部的crate，那里有条件编译cfg_attr的演示，不同的os系统返回不同的内容
+use os_different;
+
+
+
 //别名
 #[derive(Debug)]
 struct Color(u8,u8,u8);
@@ -98,7 +103,8 @@ pub fn main() {
     color_backtrace::install();
 
     //条件编译
-    crate::osshow::osshow::show();
+    os_different::show();                   //使用重新导出内部的，这样可以直接访问。
+    //os_different::osshow::osshow::show(); // pub mod osshow;  这里要加上pub,才可以这样访问。
 
     SimpleTypeElement::run();
 
@@ -351,6 +357,18 @@ pub fn main() {
     formatterr::run();
     formatterr_no_std_2::run();
     formatterr_no_std_3::run();
+
+    //演示feature 传递
+    feature_select_sample::run();
+
+
+
+
+
+
+
+
+
 
 
 
