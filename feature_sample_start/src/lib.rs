@@ -19,7 +19,7 @@
 //
 // feature_sample_local_remote v0.3.5 (/Volumes/datadisk/tech/github/gfan8w/rusthellosample/feature_sample_local_remote) default,local_computer,memorydisk,remote_computer (*)
 /// 另外一个命令：更有用，反向的显示一个模块所以来的feature，例如我们看`feature-sample-memorydisk`这个模块的feature激活路线，
-/// 如果是直接运行 rustHello程序，则整个激活路径是：
+/// 如果是直接运行 rustHello 程序，则整个激活路径是：
 /// rustHello(default) =>
 ///        feature_sample_entry(ico->bmp) =>
 ///                   feature_sample_local_remote(remote_computer->memorydisk) =>

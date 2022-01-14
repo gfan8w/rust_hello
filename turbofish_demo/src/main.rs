@@ -7,6 +7,7 @@ pub fn main() {
 #[cfg(test)]
 mod tests {
 
+    use std::str::FromStr;
 
     ///这里主要演示，如果你只想做一个变量，只有OK， 那需要把 Result的<E> 给定义出来，因为编译器 无法自动推定。
     /// 所以这里看起来很奇怪，你要定义一个4，却要指定 u8，那个u8其实是无用的
@@ -64,14 +65,25 @@ mod tests {
         let str = Into::<String>::into(s); //这个是可以的，把 s.into() 这样的实例方法 改为普通方法,double colon rather that dot
         let str = <&str as Into<String>>::into(&s); //全限定访问。 这里入参是 &s, 如果入参是 s，会发生一次自动的deref？ 会吗？ 我也不知道
 
-
-
         eprintln!("{}",str);
-
-
     }
 
+    ///string str如何转换为int u32 u64 等
+    #[test]
+    fn str_convert_to_int_works() {
 
+       let n:u32 = u32::from_str("42").unwrap();
+        println!("n:{}",n);
+        assert_eq!(n,42);
+
+        let n:u32 = <u32 as FromStr>::from_str("21").unwrap(); //全限定方式访问
+        println!("n:{}",n);
+        assert_eq!(n,21);
+
+        let n = "54".parse::<u32>().unwrap();  //turbofish 方式
+        println!("n:{}",n);
+        assert_eq!(n,54);
+    }
 
 
 
