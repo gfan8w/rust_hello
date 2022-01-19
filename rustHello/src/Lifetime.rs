@@ -1,5 +1,52 @@
 
 
+
+fn life_time1(){
+    let a =local_ref();
+
+}
+
+fn local_ref<'a>() -> &'a i32 {
+    let v =1;
+    //&v  //返回一个局部变量 ，这个是不允许的。因为 v 的生命周期只在该函数中，到外部函数life_time1中的变量a 无法引用到v。
+    &1      //这个又是可以的，因为 1是常量，常量生命周期是'static
+}
+
+
+fn life_time2(){
+    let mut data: Vec<&u32> = Vec::new(); // //堆上
+    let a =1;       //栈上，
+
+    data.push(&a); // 堆上，引用栈上的元素
+
+    println!("v:{:?}",data)
+
+    //这里看得出来，堆上的数据能引用 栈上的数据，这个在其他语言里是不可能的。这里 a 和data 在life_time2里的生命周期是一样的
+    // 堆变量的生命周期不具备任意长短的灵活性，因为堆上内存的生死存亡，跟栈上的所有者牢牢绑定。
+    // 而栈上内存的生命周期，又跟栈的生命周期相关，所以我们核心只需要关心调用栈的生命周期。堆上的数据跟着栈而变
+}
+
+
+fn life_time3(){
+    let mut data: Vec<&u32> = Vec::new(); // //堆上
+    local_vec_push(&mut data);
+
+    println!("v:{:?}",data)
+
+}
+
+fn local_vec_push(data: &mut Vec<&u32>) {
+    //let v = 1u32;
+    //data.push(&v);
+
+    data.push(&4)  //改为常量 编译通过，常量生命周期更久
+
+}// v在函数结束后，就丢弃了。无法活的比 data更长，这是不允许的。
+
+
+
+
+
 struct Number {
     value: u32,
 }
@@ -45,6 +92,13 @@ pub fn run () {
 
     println!("LifeTime demo:");
 
+    //通过这里的3个函数演示 生命周期，v必须活的比data更长久才可以。
+    //这三段代码看似错综复杂，但如果抓住了一个核心要素“在一个作用域下，同一时刻，一个值只能有一个所有者”，你会发现，其实很简单。
+    //情况 1 和情况 3 的代码无法编译通过了，因为它们引用了生命周期更短的值，而情况 2 的代码虽然在堆内存里引用栈内存，但生命周期是相同的，所以没有问题。
+    life_time1();
+    life_time2();
+    life_time3();
+
 
 
 
@@ -56,7 +110,7 @@ pub fn run () {
      println!("{}", ref_x);
 
     let n=Number{value:2};
-    let v=number_value(&n);
+    let v=number_value(&n); // number_value<'a>(num: &'a Number) -> &'a u32
     // `v` borrows `n` (immutably), thus: `v` cannot outlive `n`.
     // While `v` exists, `n` cannot be mutably borrowed, mutated, moved, etc.
 
@@ -64,15 +118,15 @@ pub fn run () {
 
 
     let i2=32 as u32;
-    let nf=  NumRef {  // nf 无法活的比i2时间长
+    let nf=  NumRef {  // nf 无法活的比i2时间长  NumRef<'a> { val: &'a u32 }
         val: &i2
     };
     println!("{:?}", nf);
 
-    let nf1=as_num_ref(&i2);
+    let nf1=as_num_ref(&i2);  // as_num_ref(num: &u32) ->NumRef<'_>
     println!("{:?}", nf1);
 
-    let n1=nf1.as_u32_ref();
+    let n1=nf1.as_u32_ref();  // impl<'a> NumRef<'a> {  fn as_u32_ref(&'a self) -> &'a u32 { self.val } }
     println!("{}",n1);
     //n1 无法活的比i2长
 
@@ -89,7 +143,7 @@ pub fn run () {
     };
     println!("{:?}",p1);
 
-    //如何在person上存储一个非 static的 string，参看Person1的，1）指定一个'a 的生命周期，2）参看 Person2，获取String的所有权
+    //如何在 person 上存储一个非 static的 string，参看Person1的，1）指定一个'a 的生命周期，2）参看 Person2，获取String的所有权
     let p2 =Person1 {
         name:&pname
     }; //p2不会比pname活的更长

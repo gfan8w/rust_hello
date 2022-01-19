@@ -23,6 +23,7 @@
       <sourceFolder url="file://$MODULE_DIR$/macro_export/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/no_core_code/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/no_std_formatter/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/serde_json_sample/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/turbofish_demo/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>

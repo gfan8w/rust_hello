@@ -2508,6 +2508,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_json_sample"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "serde_urlencoded"
 version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"

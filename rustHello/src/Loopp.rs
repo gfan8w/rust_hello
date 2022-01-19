@@ -4,6 +4,14 @@ pub fn run() {
 
     println!("demo show loop:");
 
+    let mut data =vec![1,2,3,4];
+    for item in data.iter_mut() {  //data 这里已经borrow了，它是一个borrowed的可变引用
+        //data.push(*item+1)         //这里会有问题，因为又一次使用了可变引用。不允许2次使用可变引用
+    }
+
+
+
+
     let mut a: Vec<i32> = vec![1,2,3,4,5];
 
     for i in &a {  // 这里的 &a 也可以用 a，如果用a 就会发生移动，后续 println!("{:?}", a); 只要再次使用a 就会失败
@@ -52,13 +60,14 @@ pub fn run() {
     for name in pets.iter() {  // iter对每个元素是借用，原始集合不会改变，后续还可以使用原始集合。所以 name是 引用，"Ferris"前要加 &
         match name {
             &"Ferris" => {
-                println!("There is a rustacean among us!");
+                println!("There** is a rustacean among us! {}",name);
             }
             _ => {println!("hello {}",name)}
         }
     }
 
     println!("{:?}", pets);  // 这里还可以使用 pets。
+
 
 
     let mylikes = vec!["Bob","Ferris","Frank"]; // 如果这里 是 ["Bob","Ferris","Frank"]，为什么不会报错？
@@ -80,14 +89,14 @@ pub fn run() {
 
 
 
-    let mut rustacean = vec!["Bob","Ferris","Frank"];
+    let mut rustacean = vec!["Bob", "Ferris", "Frank"];
     for ru in rustacean.iter_mut(){ // iter_mut 会生成一个可变的借用，可实现就地更改集合数据
         *ru =match  ru {
             &mut "Ferris" =>"There is a rustacean among us!",
             _ =>"Hello "
         }
     }
-    println!("{:?}", rustacean);
+    println!("iter_mut:{:?}", rustacean);
 
     // &mut "Ferris" =>{
     //                 let mut bb=String::new();

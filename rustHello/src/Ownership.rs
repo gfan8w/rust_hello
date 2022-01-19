@@ -25,6 +25,10 @@ pub fn run () {
     multi_mut_reference();
     // 查找第一个单词，练习slice，切片
     find_first_words();
+
+    modify_in_loop();
+
+    modify_vec_twice_not_allow();
 }
 
 // 该函数获取了一个string和它的所有权，最后又返回一个string和它的所有权，并返回一个i32的所有权给调用者
@@ -139,8 +143,29 @@ fn first_words(s: &String) ->&str {  // fn first_words(s: &str) ->&str  -> 这�
 
 }
 
+fn modify_in_loop(){
+    let mut data =vec![1,2,3,4];
+    for item in data.iter_mut() {  //data 这里已经borrow了，它是一个borrowed的可变引用
+        //data.push(*item+1)         //这里会有问题，因为又一次使用了可变引用。不允许2次使用可变引用
+    }
+}
 
 
+///这段代码是有问题的。在data push的时候，如果要扩张容量，data会重新分配，
+/// data1指向的是data的第一个元素，如果data重新分配内存会在一个新内存，data1的指向会失效。
+/// 但rust编译预先有预定，
+fn modify_vec_twice_not_allow(){
+    let mut data =vec![1,2,3,4];
+    let data1 =vec![&data[0]]; //不可变引用（borrow）
+    println!("data[0]: {:p}",&data[0]);
+
+    for i in 1..10{
+        data.push(i);  // 可变引用（borrow）
+    }
+
+    println!("data[0]: {:p}", &data[0]);
+    //println!("boxed: {:p}", &data1);   // 使用了不可变引用，这里会报错是不允许的。
+}
 
 
 

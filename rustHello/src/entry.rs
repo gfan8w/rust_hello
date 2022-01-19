@@ -361,9 +361,11 @@ pub fn main() {
     //演示feature 传递
     feature_select_sample::run();
 
+    //演示某个类型是否实现了CopyTrait
+    is_copy::run();
 
-
-
+    //可辩驳性(refutability)演示：可辩驳 表示一个判断，或模式 是否会失败，不会失败的就是不可辩驳的（irrefutable），可能有包含失败的叫 refutable
+    refutable_sample::run();
 
 
 

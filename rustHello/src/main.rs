@@ -36,6 +36,8 @@ mod formatterr_no_std_2;
 mod formatterr_no_std_3;
 mod formatterr_no_std_4;
 mod feature_select_sample;
+mod is_copy;
+mod refutable_sample;
 
 // ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 

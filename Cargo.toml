@@ -19,6 +19,7 @@ members = [
     'feature_sample_local_remote',
     'feature-sample-memorydisk',
     'cfg_attr_sample',
+    'serde_json_sample',
 
 
 
