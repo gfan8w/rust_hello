@@ -315,7 +315,7 @@ pub fn main() {
     //所有权
     Ownership::run();
     //智能指正
-    Boxing::run();
+    Box_sample::run();
     //智能指针：RefCell<T>
     ReferenceCell::run();
     //traitObject
@@ -367,9 +367,39 @@ pub fn main() {
     //可辩驳性(refutability)演示：可辩驳 表示一个判断，或模式 是否会失败，不会失败的就是不可辩驳的（irrefutable），可能有包含失败的叫 refutable
     refutable_sample::run();
 
+    //vec的容量不够导致重新分配，验证在可变应用之后有不可变引用是不行的，因为不可变引用的老地址无效了。
+    vec_reallocate_immutable_address_change::run();
+
+    //Rc Reference counter 使用 sample
+    Rc_sample::run();
+
+    //RefCell的演示,对并未声明成 mut 的值或者引用，也想进行修改。
+    // 也就是说，在编译器的眼里，值是只读的，但是在运行时，这个值可以得到可变借用，从而修改内部的数据，
+    // 这就是 RefCell 的用武之地
+    RefCell_sample::run();
+
+    //演示 Deref trait
+    Deref_sample::run();
+
+    //演示指针，请结合lldb 调试器查看
+    pointer_stack::run();
+
+    //查看各种类型的内存大小
+    show_type_size::run();
+
+    //string str  &str
+    string_str::run();
 
 
-
+    //演示如何使用static变量，static的不能并发修改。
+    // HASH_MAP申明为pub，让这里外部可以访问，这里先插入一个值
+    // 这里加一个 { 代码块，是要让lock()在代码块结束后自动drop，释放锁，如果没有这个代码块，global_static::run()里的 lock会一直等待，造成死锁
+    {
+        let mut hm=global_static::HASH_MAP.lock().unwrap();
+        hm.insert(3,"Bill");
+    }
+    //再次调用，会再访问static变量。
+    global_static::run();
 
 
 

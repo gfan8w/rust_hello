@@ -1,5 +1,4 @@
-
-
+use std::collections::HashMap;
 
 fn life_time1(){
     let a =local_ref();
@@ -99,7 +98,12 @@ pub fn run () {
     life_time2();
     life_time3();
 
+    find_first_word();
 
+    test_strtok();
+
+
+    put_hashmap();
 
 
      let ref_x = {
@@ -220,12 +224,14 @@ fn file_ext(file_name: &str) -> Option<&str> {
 }
 
 
-
 fn print_longest(){
     let hello =String::from("hello");
     let jet ="jet";
     let long=longest(hello.as_str(),jet);
     println!("the longest str is :{}",long)
+
+
+
 }
 
 fn print_different_life_longest(){
@@ -245,7 +251,8 @@ fn print_different_life_longest(){
 
 /// rust 有个功能叫：borrow checker，如下的函数，编译器无法确定 返回的引用是 s1 还是 s2
 /// 所以需要手工指定一个泛型的生命周期参数，生命周期参数不会改变参数的实际生命周期，它只是指示各个参数
-/// 之间生命周期的相互关系
+/// 之间生命周期的相互关系,
+/// ! 生命周期参数，描述的是参数和参数之间、参数和返回值之间的关系，并不改变原有的生命周期。
 /// 生命周期参数 'a 放置的位置：
 /// &i32
 /// &'a i32
@@ -262,6 +269,110 @@ fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str {
     }
     s2
 }
+
+
+fn find_first_word(){
+    let a_str ="hello world";
+    let first = first_word(a_str);
+    println!("first word:{}",first);
+}
+
+///虽然我们没有做任何生命周期的标注，但编译器会通过一些简单的规则为函数自动添加标注：
+/// 1) 所有引用类型的参数都有独立的生命周期 'a 、'b 等。
+/// 2) 如果只有一个引用型输入，它的生命周期会赋给所有输出。
+/// 3) 如果有多个引用类型的参数，其中一个是 self，那么它的生命周期会赋给所有输出。
+fn first_word(str: &str) -> &str {
+    let trimmed = str.trim();
+    let idx =trimmed.find(" ");
+    let ret= match idx {
+        Some(v) => &str[..v],
+        _ => &"",
+    };
+
+    ret
+
+}
+
+
+fn test_strtok(){
+    let  hello="hello world".to_string();
+    let mut hello_str = hello.as_str();
+    let str_rst = strtok(&mut hello_str,'r'); //返回一个新值， 改变原值，
+    println!("sub string is:{}, left string is :{}, raw string is {}",str_rst,hello_str,hello);
+
+
+}
+
+
+/// 1） 函数签名： strtok(str: &mut &str, delimter: char) ->&str
+///     会遇到编译错误。是因为按照编译器的规则， &mut &str 添加生命周期后变成 &'b mut &'a str，这将导致返回的 '&str 无法选择一个合适的生命周期
+/// 2）函数签名改为： strtok<'b, 'a>(s: &'b mut &'a str, delimiter: char) -> &'a str
+///    返回值和谁的生命周期有关？是指向字符串引用的可变引用 &mut ，还是字符串引用 &str 本身？
+/// 3) 因为返回值的生命周期跟字符串引用有关，我们只为这部分的约束添加标注就可以了，剩下的标注交给编译器自动添加，
+///    所以代码也可以简化成如下这样: strtok<'b>(str: &mut &'b str, delimter: char) ->&'b str
+/// 4）如果把生命周期换位置，函数签名变为：
+///    strtok<'b>(str: &'b mut &str, delimter: char) ->&'b str
+///    因为现在我们把对字符串的可变引用的生命周期和返回值的生命周期关联起来了，
+///    str_rst 得到了 strtok 的返回值，所以从编译器看来，&mut hello_str 的生命周期并没有结束，所以发生了 &mut 和 & 同时存在的局面
+///    在print的地方 &hello_str 是 immutable borrow 发生了，这个是不允许的
+///
+/// 生命周期标注的目的是，在参数和返回值之间建立联系或者约束。调用函数时，传入的参数的生命周期需要大于等于（outlive）标注的生命周期。
+/// 当每个函数都添加好生命周期标注后，编译器，就可以从函数调用的上下文中分析出，在传参时，引用的生命周期，是否和函数签名中要求的生命周期匹配。
+/// 如果不匹配，就违背了“引用的生命周期不能超出值的生命周期”，编译器就会报错。
+fn strtok<'b>(str: &mut &'b str, delimter: char) ->&'b str {
+    let len=delimter.len_utf8();
+    let trimmed = str.trim();
+    match trimmed.find(delimter) {
+        Some(idx) => {
+            let llen =idx + len;
+            let prefix =&(*str)[..idx];  // str 是 &mut &str 类型，那个 (*str) 解一次引用后是 &str
+            // 由于 delimiter 可以是 utf8，所以我们需要获得其 utf8 长度，
+            // 直接使用 len 返回的是字节长度，会有问题
+            *str = &(*str)[llen..];
+            prefix
+        },
+        _ => {
+            // 如果没找到，返回整个字符串，把原字符串指针 s 指向空串
+            let prefix =&(*str)[..];
+            *str =&"";
+            prefix
+        }
+    }
+    //&""
+
+
+}
+
+
+fn put_hashmap(){
+
+    let mut hm = HashMap::new();
+    hm.insert("key","value");
+    let key ="key3";
+
+    // 按照之前的说法，这段代码无法编译通过，因为同一个 scope 下不能有两个可变引用
+    // 但因为 RFC2094 non-lexical lifetimes，Rust 编译器可以处理这个场景，
+    // 因为当 None 时，map.get_mut() 的引用实际已经结束
+    match hm.get_mut(key) { /* <----- 可变引用的生命周期一直持续到 match 结果 */
+        Some(v) => {
+            println!("hash value:{}",v)
+        },
+        _ => {
+            hm.insert(key,"value3");   // <--- 这里又获得了一个可变引用
+        }
+    }
+
+}
+
+
+/// 数据结构的生命周期标注也是类似。比如下面的例子，Employee 的 name 和 title 是两个字符串引用，
+/// let e= Employee{..} , e的生命周期不能大于 外部拥有owner的name变量的生命周期，e也不能大于外部拥有woner的title变量的生命周期，否则会访问失效的内存
+struct Employee<'a,'b>{
+    name: &'a str,
+    title: &'b str,
+    age: u32
+}
+
 
 ///结构体成员可以包含引用，但需要注明生命周期，这里的意思是 ImportExcerpt的实体不可能活的比name对应的那个字符串更长。
 struct ImportExcerpt<'a> {

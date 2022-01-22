@@ -1,12 +1,14 @@
 use std::ops::Deref;
-use crate::Boxing::List::{Cons, Nil};
+use crate::Box_sample::List::{Cons, Nil};
 use std::rc::Rc;
 use std::cell::RefCell;
-use std::borrow::BorrowMut;
+use std::borrow::{Borrow, BorrowMut};
 
 /// 参考： https://doc.rust-lang.org/stable/book/ch15-02-deref.html
-
-
+/// Box解决的 是在堆上分配数据，只能有一个owner，数据是可以修改的，定义的时候，可以有 `引用` 和 `可变引用`  Box<T> allows immutable or mutable borrows checked at compile time
+/// Rc 解决的是 在Box的基础上，有多个owner。数据是只读的。   Rc<T> allows only immutable borrows checked at compile time
+/// RefCell 解决的是 对某个只读数据进行可变借用, 在Rc的基础上，可以修改数据，RefCell是单一owner的。需要配合Rc使用才是多owner   RefCell<T> allows immutable or mutable borrows checked at runtime.
+/// 如果你有一个 不可变变量，你不能把它借用为一个可变变量，用RefCell解决，参看：RefCell_sample.rs::recall_mut_variable_not_work
 enum List {
     Cons(i32,Box<List>),
     Nil
@@ -46,7 +48,7 @@ impl Drop for CustomerSmartPointer {
 }
 
 
-
+///给Mybox实现 Deref 解引用
 impl<T> Deref for MyBox<T> {
     type Target = T;
 
@@ -64,6 +66,13 @@ pub fn run(){
     println!("{}",b);
     assert_eq!(5,*b);
 
+    let mut bm =Box::new(6);
+
+    *bm+=1;
+
+    assert_eq!(7,*bm);
+
+
     let list = List::Cons(1,
                           Box::new(List::Cons(2,
                                               Box::new(List::Cons(3,
@@ -71,11 +80,13 @@ pub fn run(){
                                                                                       Box::new(List::Nil))))))));
 
     let mx = 5;
-    let mb =MyBox::<i32>::new(mx);
-    assert_eq!(5,*mb); // 会自动调用deref
+    let mb =MyBox::<i32>::new(mx); //使用trubofish
+    assert_eq!(5,*mb); // 会自动调用deref 等效： *(mb.deref())
 
     let mystr =MyBox::new(String::from("hello"));
-    hello(&mystr); // 会自动调用deref
+    hello(&mystr); // 会自动调用deref，1）mystr 是 Mybox<String>类型的 hello，  deref操作 把 &MyBox<String> 变为 &String，标准库的String实现了deref，把&String变为 &str
+    hello(&(*mystr)[..]); //手工转换的方式， *mystr 是一个String，然后 [..] 得到一个切片， 加上 & 返回引用
+
 
     let m1 =CustomerSmartPointer {data:"memory stuff".to_string()};
 
@@ -123,7 +134,5 @@ pub fn run(){
 fn hello(hello: &str) {
     println!("test deref:{}",hello)
 }
-
-
 
 

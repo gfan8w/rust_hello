@@ -14,7 +14,7 @@ mod PrintComplex;
 mod Loopp;
 mod Strings;
 mod Ownership;
-mod Boxing;
+mod Box_sample;
 mod ReferenceCell;
 mod TraitObject;
 mod blog;
@@ -38,6 +38,14 @@ mod formatterr_no_std_4;
 mod feature_select_sample;
 mod is_copy;
 mod refutable_sample;
+mod vec_reallocate_immutable_address_change;
+mod Rc_sample;
+mod RefCell_sample;
+mod Deref_sample;
+mod pointer_stack;
+mod show_type_size;
+mod string_str;
+mod global_static;
 
 // ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 

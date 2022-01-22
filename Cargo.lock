@@ -2333,6 +2333,7 @@ dependencies = [
  "feature_sample_entry",
  "ferris-says",
  "httpie",
+ "lazy_static",
  "macro_export",
  "serde_json",
  "visibilitytest",

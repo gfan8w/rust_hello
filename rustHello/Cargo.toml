@@ -10,6 +10,7 @@ edition = "2018"
 serde_json = "1.0.60"
 ferris-says = "0.2.1"
 color-backtrace = { version = "0.5" }
+lazy_static = "1" # 通过宏更方便地初始化静态变量
 macro_export = { path = "../macro_export" }
 visibilitytest = { path = "../visibilitytest" }
 httpie = { path = "../httpie" }

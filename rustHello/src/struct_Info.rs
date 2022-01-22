@@ -1,3 +1,4 @@
+use std::mem::{align_of, size_of};
 
 #[derive(Debug)]
 struct Site{
@@ -49,14 +50,30 @@ pub fn run(){
     // assert_eq 必须实现 PartialEq
     assert_eq!(bob,alice);
 
-    println!("bob==alice:{}",bob==alice)
+    println!("bob==alice:{}",bob==alice);
+
+    //查看结构体的对其
+    size_of_struct();
+
+
 }
 
 
+struct S1 {
+    a: u8,
+    b: u16,
+    c: u8,
+}
+
+struct S2 {
+    a: u8,
+    b: u8,
+    c: u16,
+}
 
 
-
-
-
-
+fn size_of_struct(){
+    println!("size_of_struct S1:{}, S2:{}", size_of::<S1>(),size_of::<S2>());
+    println!("align_of_struct S1:{}, S2:{}", align_of::<S1>(),align_of::<S2>());
+}
 
