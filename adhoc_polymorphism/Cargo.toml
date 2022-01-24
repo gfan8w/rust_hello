@@ -1,0 +1,11 @@
+[package]
+name = "adhoc_polymorphism"
+version = "0.1.0"
+edition = "2021"
+description ="特设多态 （adhoc polymorphism） 是指同一种行为有多个不同实现的多态。比如加法，可以 1+1，也可以是 “abc” + “cde”、matrix1 + matrix2、甚至 matrix1 + vector1 , 在面向对象编程语言中，特设多态一般指函数的重载。  特设多态通过 trait 来支持"
+
+[dependencies]
+regex = "1.5"
+
+[[example]]
+name = "BufWriter"

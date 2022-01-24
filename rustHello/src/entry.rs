@@ -401,6 +401,18 @@ pub fn main() {
     //再次调用，会再访问static变量。
     global_static::run();
 
+    //演示泛型约束
+    generics_constraint::run();
+
+    //二位数组
+    array_2d_sample::run();
+
+    //裸指针
+    raw_pointer::run();
+
+
+
+
 
 
 

@@ -46,6 +46,10 @@ mod pointer_stack;
 mod show_type_size;
 mod string_str;
 mod global_static;
+mod generics_constraint;
+mod array_2d_sample;
+mod raw_pointer;
+mod adhoc_polymorphism;
 
 // ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 

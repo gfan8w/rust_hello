@@ -18,6 +18,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "adhoc_polymorphism"
+version = "0.1.0"
+dependencies = [
+ "regex",
+]
+
+[[package]]
 name = "adler"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2335,6 +2342,7 @@ dependencies = [
  "httpie",
  "lazy_static",
  "macro_export",
+ "rand 0.8.4",
  "serde_json",
  "visibilitytest",
 ]
