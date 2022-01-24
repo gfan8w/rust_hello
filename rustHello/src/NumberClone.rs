@@ -80,6 +80,9 @@ impl std::clone::Clone for Number {
     }
 }
 
+// Copy trait 和 Drop trait 是互斥的，两者不能共存，当你尝试为同一种数据类型实现 Copy 时，也实现 Drop，
+// 编译器就会报错。这其实很好理解：Copy 是按位做浅拷贝，那么它会默认拷贝的数据没有需要释放的资源；
+// 而 Drop 恰恰是为了释放额外的资源而生的。
 //Marker 特性没有方法，只是告诉运行时，某个类型具有某种特质
 impl std::marker::Copy for Number {
     

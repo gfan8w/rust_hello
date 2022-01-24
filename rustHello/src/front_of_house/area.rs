@@ -1,5 +1,7 @@
 use std::f64::consts::PI;
 
+///trait 和实现 trait 的数据类型，至少有一个是在当前 crate 中定义的，
+/// 也就是说，你不能为第三方的类型实现第三方的 trait，当你尝试这么做时，Rust 编译器会报错
 pub trait CalculateArea{
     fn calc(&self) ->f64;
 }

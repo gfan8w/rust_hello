@@ -1,5 +1,29 @@
 use std::fmt::{Display, Debug};
 
+
+//Sized trait 用于标记有具体大小的类型。在使用泛型参数时，
+// Rust 编译器会自动为泛型参数加上 Sized 约束，比如下面的 Data 和处理 Data 的函数 process_data：
+/*
+
+struct Data<T: Sized> {
+   inner: T,
+}
+fn process_data<T: Sized>(data: Data<T>)
+{
+   // .....
+}
+
+*/
+struct Data<T> {
+    inner: T,
+}
+fn process_data<T>(data: Data<T>)
+{
+    todo!();
+}
+
+
+
 fn showDisplay<T:Display>(t:T){
 
     println!("{}",t);
