@@ -2,6 +2,7 @@
 
 
 //重要的trait 必须学会的
+// 1）Clone,Copy
 
 
 #[derive(Clone,Debug)]

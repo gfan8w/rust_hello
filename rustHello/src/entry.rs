@@ -1,7 +1,7 @@
 
 use super::front_of_house::hosting as host; // as 重新命名
 use crate::front_of_house::traffic_light::Run;
-use std::cmp::{min, max}; //同时引入 min，max
+use std::cmp::{max, min}; //同时引入 min，max
 
 use std::collections::HashMap;
 use crate::front_of_house::pubStruct::CloseBox;
@@ -14,6 +14,7 @@ use super::*;   // *, 英文叫：the glob operator
 
 //使用一个外部的crate，那里有条件编译cfg_attr的演示，不同的os系统返回不同的内容
 use os_different;
+use crate::important_trait;
 
 
 
@@ -108,8 +109,6 @@ pub fn main() {
 
     SimpleTypeElement::run();
 
-    // 复杂对象如何显示
-    PrintComplex::run();
 
     //循环遍历
     Loopp::run();
@@ -378,8 +377,8 @@ pub fn main() {
     // 这就是 RefCell 的用武之地
     RefCell_sample::run();
 
-    //演示 Deref trait
-    Deref_sample::run();
+    //重要的trait，必须学会的。演示 Deref trait
+    important_trait::run();
 
     //演示指针，请结合lldb 调试器查看
     pointer_stack::run();

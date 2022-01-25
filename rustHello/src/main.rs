@@ -10,7 +10,6 @@ mod Lifetime;
 mod ReadFile;
 mod Ferris;
 mod SimpleTypeElement;
-mod PrintComplex;
 mod Loopp;
 mod Strings;
 mod Ownership;
@@ -40,7 +39,6 @@ mod refutable_sample;
 mod vec_reallocate_immutable_address_change;
 mod Rc_sample;
 mod RefCell_sample;
-mod Deref_sample;
 mod pointer_stack;
 mod show_type_size;
 mod string_str;
@@ -50,8 +48,7 @@ mod array_2d_sample;
 mod raw_pointer;
 mod adhoc_polymorphism;
 mod trait_object;
-mod copy_drop_trait;
-mod sized_unsized_sample;
+mod important_trait;
 
 // ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 

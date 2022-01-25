@@ -3,7 +3,6 @@ mod draw;
 mod formatter;
 mod look_into_vtable;
 mod SentenceIter;
-mod important_trait;
 
 use std::fs::File;
 use std::io::Write;
