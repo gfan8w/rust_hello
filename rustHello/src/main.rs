@@ -5,7 +5,6 @@ mod front_of_house;
 mod NumberClone;
 mod TraitSample;
 mod GenericFn;
-mod ClosuresFun;
 mod Lifetime;
 mod ReadFile;
 mod Ferris;
@@ -49,6 +48,7 @@ mod raw_pointer;
 mod adhoc_polymorphism;
 mod trait_object;
 mod important_trait;
+mod closure_sample;
 
 // ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 

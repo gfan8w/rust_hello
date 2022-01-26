@@ -14,6 +14,7 @@ use super::*;   // *, 英文叫：the glob operator
 
 //使用一个外部的crate，那里有条件编译cfg_attr的演示，不同的os系统返回不同的内容
 use os_different;
+use crate::closure_sample;
 use crate::important_trait;
 
 
@@ -306,7 +307,7 @@ pub fn main() {
     GenericFn::run();
 
     // 闭包
-    ClosuresFun::run();
+    closure_sample::run();
 
     //生命周期
     Lifetime::run();

@@ -44,11 +44,11 @@ pub fn run(){
 
     println!("ClourseFun:");
     println!("{}", (p.age)(1));
-
+    println!("{}", (p.age)(2));
 
     let mut alice  =String::from("alice");
 
-    // 这里定义了闭包，ss 被借走了，而且是可变引用
+    // 这里定义了闭包，alice 被借走了，而且是可变引用
     let p2 = Person2{
         name: String::from("alice"),
         age: ||  {
@@ -68,7 +68,7 @@ pub fn run(){
 
     let mut stack  =String::from("jack ");
 
-    //这里定义了闭包，ss 被借走了，而且是可变引用
+    //这里定义了闭包，stack 被借走了，而且是可变引用
     let mut p3 = Person3{
         name: String::from("Jack"),
         age: ||  {
@@ -83,7 +83,7 @@ pub fn run(){
     (p3.age)();
     (p3.age)();
 
-    //到这里，编译器认为闭包不再调用，所以使用不可变引用 ss
+    //到这里，编译器认为闭包不再调用，所以使用不可变引用 stack
     println!("{}", stack);
 
     //如果这里还要使用闭包，那么上面这句会报错，因为可变引用和不可变引用不可同时存在
@@ -128,7 +128,17 @@ pub fn run(){
 
 
 
+#[cfg(test)]
+mod test {
+    use super::*;
 
+    #[test]
+    fn test_Closure() {
+
+        run();
+
+    }
+}
 
 
 

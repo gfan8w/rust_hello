@@ -25,8 +25,8 @@
       <sourceFolder url="file://$MODULE_DIR$/no_std_formatter/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/serde_json_sample/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/turbofish_demo/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/adhoc_polymorphism/examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/adhoc_polymorphism/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/adhoc_polymorphism_howto_trait/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/adhoc_polymorphism_howto_trait/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

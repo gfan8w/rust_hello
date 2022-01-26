@@ -20,7 +20,7 @@ members = [
     'feature-sample-memorydisk',
     'cfg_attr_sample',
     'serde_json_sample',
-    'adhoc_polymorphism',
+    'adhoc_polymorphism_howto_trait',
 
 
 
