@@ -16,7 +16,7 @@ use super::*;   // *, 英文叫：the glob operator
 use os_different;
 use crate::closure_sample;
 use crate::important_trait;
-
+use crate::smart_pointer::Box_sample;
 
 
 //别名

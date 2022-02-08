@@ -12,7 +12,6 @@ mod SimpleTypeElement;
 mod Loopp;
 mod Strings;
 mod Ownership;
-mod Box_sample;
 mod ReferenceCell;
 mod TraitObject;
 mod Threadss;
@@ -49,6 +48,7 @@ mod adhoc_polymorphism;
 mod trait_object;
 mod important_trait;
 mod closure_sample;
+mod smart_pointer;
 
 // ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 

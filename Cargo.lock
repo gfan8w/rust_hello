@@ -1379,10 +1379,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "no_core_code"
-version = "0.1.0"
-
-[[package]]
 name = "no_std_formatter"
 version = "0.1.0"
 
@@ -2343,7 +2339,9 @@ dependencies = [
  "lazy_static",
  "macro_export",
  "rand 0.8.4",
+ "serde",
  "serde_json",
+ "url",
  "visibilitytest",
 ]
 

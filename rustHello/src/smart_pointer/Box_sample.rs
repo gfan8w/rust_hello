@@ -1,5 +1,5 @@
 use std::ops::Deref;
-use crate::Box_sample::List::{Cons, Nil};
+use crate::smart_pointer::Box_sample::List::{Cons, Nil};
 use std::rc::Rc;
 use std::cell::RefCell;
 use std::borrow::{Borrow, BorrowMut};
@@ -124,6 +124,10 @@ pub fn run(){
 
     *(*value).borrow_mut()+=10; //改变值，一次到位
 
+    /*let aa = &*value;
+    let mut bb = aa.borrow_mut();
+    *bb+=17;*/
+
     println!("a after = {:?}", a3);
     println!("b after = {:?}", b3);
     println!("c after = {:?}", c3);
@@ -136,3 +140,14 @@ fn hello(hello: &str) {
 }
 
 
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_run_serde_cow() {
+        run()
+    }
+
+}

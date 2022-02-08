@@ -14,7 +14,6 @@ members = [
     "bs58test",
     'turbofish_demo',
     'no_std_formatter',
-    'no_core_code',
     'fully-qualified-access',
     'feature_sample_local_remote',
     'feature-sample-memorydisk',

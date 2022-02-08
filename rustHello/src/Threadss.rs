@@ -40,7 +40,7 @@ Send/Sync 是 Rust 并发安全的基础：
 */
 
 
-// Rc 既不是 Send，也不是 Syncfn
+// Rc 既不是 Send，也不是 Sync
 fn rc_is_not_send_and_sync()
 {
     let a = Rc::new(1);
@@ -74,12 +74,14 @@ fn arc_is_send_refCell_is_not_sync(){
 }
 
 
-// Arc> 可以多线程共享且修改数据
+// Arc 可以多线程共享且修改数据
 fn arc_mutex_are_send_and_sync(){
 
     let a =Arc::new(Mutex::new(1));
     let b = Arc::clone(&a);
     let c =Arc::clone(&a);
+
+    // 要完成跨线程，还得先clone，在move，在编译器眼里，是move ownership的。
     thread::spawn(move ||{
         let mut aa = a.lock().unwrap();
         *aa+=1;

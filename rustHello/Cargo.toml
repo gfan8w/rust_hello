@@ -8,7 +8,8 @@ edition = "2018"
 
 [dependencies]
 rand = "0.8.4"
-serde_json = "1.0.60"
+serde = { version = "1", features = ["derive"] }
+serde_json ={ version ="1" }
 ferris-says = "0.2.1"
 color-backtrace = { version = "0.5" }
 lazy_static = "1" # 通过宏更方便地初始化静态变量
@@ -16,7 +17,7 @@ macro_export = { path = "../macro_export" }
 visibilitytest = { path = "../visibilitytest" }
 httpie = { path = "../httpie" }
 os_different ={path="../cfg_attr_sample", package="cfg_attr"}
-
+url = { version = "2" }
 
 
 #这里演示feature的default、特定feature的情况，可以尝试 把 default-features = false 和 features =["ico"] 删除掉，看输出，会输出bmp 和 webp，

@@ -8,8 +8,17 @@ use memorydisk; //引用了另外一个依赖，注意该依赖被标记为 opti
 
 // 这里有2个process，所以，local_computer 和 remote_computer 只能enable一个，不能2个同时enable
 
-#[cfg(feature="local_computer")]
 pub fn process(){
+    #[cfg(feature="local_computer")]
+    process_local_computer();
+
+    #[cfg(feature="remote_computer")]
+    process_remote_computer();
+
+}
+
+#[cfg(feature="local_computer")]
+pub fn process_local_computer(){
     println!("process local_computer");
 
     #[cfg(feature = "memorydisk")]
@@ -17,7 +26,7 @@ pub fn process(){
 }
 
 #[cfg(feature="remote_computer")]
-pub fn process(){
+pub fn process_remote_computer(){
     println!("process remote_computer");
 
     #[cfg(feature = "memorydisk")]

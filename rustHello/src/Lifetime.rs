@@ -1,5 +1,26 @@
 use std::collections::HashMap;
 
+
+
+fn run_temporary_lifetime(){
+    // 这里没有定义一个临时变量来存放 "hello".to_string()，导致 hello的所有权被立刻释放，导致编译错误
+    //let r1:&String = "hello".to_string().borrow();
+    //println!("r1: {:p}", &r1);
+
+    let a =&String::from("hello");  //这个可以
+    println!("a:{}",a);
+
+
+    // 这个会报错：- temporary value is freed at the end of this statement
+    // `hello`的所有权已经消失
+    //let b =String::from("hello").as_str();
+    //println!("a:{}",b);
+
+}
+
+
+
+
 fn life_time1(){
     let a =local_ref();
 
@@ -406,6 +427,15 @@ fn compose_importExcerpt(){
 
 
 
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_run_temporary_lifetime() {
+        run_temporary_lifetime();
+    }
+}
 
 
 
