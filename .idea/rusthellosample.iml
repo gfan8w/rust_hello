@@ -27,6 +27,7 @@
       <sourceFolder url="file://$MODULE_DIR$/turbofish_demo/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/adhoc_polymorphism_howto_trait/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/adhoc_polymorphism_howto_trait/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/string_to_hex/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
