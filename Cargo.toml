@@ -21,6 +21,7 @@ members = [
     'serde_json_sample',
     'adhoc_polymorphism_howto_trait',
     'string_to_hex',
+    'rocksdbactixweb'
 
 
 
@@ -33,3 +34,4 @@ members = [
 
 [profile.release]
 panic = 'unwind'
+debug = true
