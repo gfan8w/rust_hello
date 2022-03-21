@@ -6,6 +6,7 @@ extern crate dotenv;
 
 //参考： https://www.rectcircle.cn/posts/rust-diesel/
 
+use diesel::r2d2;
 use diesel::prelude::*;
 use diesel::mysql::MysqlConnection;
 use dotenv::dotenv;
@@ -27,6 +28,20 @@ pub fn establish_connection() -> MysqlConnection {
     // 建连MySQL连接
     MysqlConnection::establish(&database_url)
         .expect(&format!("Error connecting to {}", database_url))
+}
+
+///创建连接池
+pub fn new_connection_pool() -> r2d2::Pool<r2d2::ConnectionManager<MysqlConnection>> {
+    dotenv().ok();
+
+    let database_url = env::var("DATABASE_URL")
+        .expect("DATABASE_URL must be set");
+    let manager = r2d2::ConnectionManager::<MysqlConnection>::new(database_url);
+    let pool = r2d2::Pool::builder()
+        .max_size(15)
+        .build(manager)
+        .expect("Failed to create pool.");
+    pool
 }
 
 
@@ -64,7 +79,7 @@ mod tests {
     use super::*;
     use diesel::mysql::Mysql;
     use diesel::debug_query;
-    use models::{PostForUpdate, UserForm};
+    use models::{PostForUpdate, UserForm, Post};
 
 
     #[test]
@@ -197,6 +212,18 @@ mod tests {
         let query = diesel::insert_into(users)
             .values(&v);
         println!("{}", debug_query::<Mysql, _>(&query));
+    }
+
+
+    #[test]
+    fn test_conn_pool(){
+        use schema::posts;
+        let pool = new_connection_pool();
+        let conn = pool.get().unwrap();
+
+        let posts = posts::table.load::<Post>(&conn);
+
+        println!("{:?}", posts);
     }
 
 }

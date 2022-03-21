@@ -10,6 +10,6 @@ name = "show_posts"
 
 [dependencies]
 # diesel = { version = "1.4", features = ["postgres"] }
-diesel = { version = "1.4", features = ["mysql"] }
+diesel = { version = "1.4", features = ["mysql", "r2d2"] }
 # diesel = { version = "1.4", features = ["sqlite"] }
 dotenv = "0.15.0"
