@@ -1,0 +1,15 @@
+[package]
+name = "diesel-learn"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "show_posts"
+
+[dependencies]
+# diesel = { version = "1.4", features = ["postgres"] }
+diesel = { version = "1.4", features = ["mysql"] }
+# diesel = { version = "1.4", features = ["sqlite"] }
+dotenv = "0.15.0"

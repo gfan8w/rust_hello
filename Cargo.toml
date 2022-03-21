@@ -21,7 +21,12 @@ members = [
     'serde_json_sample',
     'adhoc_polymorphism_howto_trait',
     'string_to_hex',
-    'rocksdbactixweb'
+    'rocksdbactixweb',
+    'PatriciaTrie',
+    'microservice',
+    'late-night-rocket',
+    'todos-graphql-api',
+    'diesel-learn',
 
 
 

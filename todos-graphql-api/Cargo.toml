@@ -1,0 +1,21 @@
+[package]
+name = "todos-graphql-api"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[example]]
+name = "show"
+
+
+[dependencies]
+serde_json = "1.0"
+dotenv = "0.15.0"
+serde_derive = "1.0"
+juniper = "0.13.1"
+serde = "1.0"
+actix-web = "1.0.0"
+diesel = { version = "1.4.4", features = ["postgres"] }
+futures = "0.1"
+env_logger = "0.7.1"

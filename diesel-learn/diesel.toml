@@ -1,0 +1,14 @@
+# For documentation on how to configure this file,
+# see diesel.rs/guides/configuring-diesel-cli
+
+# 1）diesel setup 命令运行后，创建该文件 及 migrations文件夹
+# 2） diesel migration generate create_posts  创建 数据库变更
+# 3） 在 up.sql 和 down.sql 里写入sql，一个用于执行，另外一个用于回滚。
+# 4） diesel migration run 执行db 变更，up.sql 和down.sql会执行，src/schema.rs文件也会有新增内容（该文件原先是空的）
+#     同时数据库中该表已经创建完成
+#  由此可以看出 diesel 原理
+#  使用 diesel_cli 工具将数据库 表结构 转换为 diesel 的宏语法，并生成代码写到 schema.rs 文件中
+#  调用 schema.rs 文件构建查询，最后通过 .load::<Model> 等一系列函数执行SQL序列换为Model，diesel 负责生成SQL，并反序列化为类型实例
+[print_schema]
+file = "src/schema.rs"  # schema文件路径
+with_docs = true  # 是否创建Docs注释
