@@ -27,6 +27,9 @@ members = [
     'late-night-rocket',
     'todos-graphql-api',
     'diesel-learn',
+    'actix_web_learn',
+    'actix_actor',
+    'diesel-raw-sql',
 
 
 

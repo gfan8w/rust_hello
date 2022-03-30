@@ -4,6 +4,8 @@ use actix_web::web::{get,post,delete, resource, scope};
 mod kv_store;
 mod kv_handler;
 
+///处理函数应该是一个异步函数，返回一个 实现了 Responder 的类型
+/// #[get("/")] 可以方便的配置请求宏，
 #[get("/")]
 async fn index() -> impl Responder {
     HttpResponse::Ok().body("Rust service ok")
@@ -15,6 +17,7 @@ async fn healthCheck() -> impl Responder {
 }
 
 /// 参考：https://levelup.gitconnected.com/using-rocksdb-with-rust-and-actix-web-98507c9db267
+/// #[actix_rt::main] 用于生成异步函数运行时，需要引入 actix-rt = "1.0" 依赖
 #[actix_rt::main]
 async fn main() -> std::io::Result<()>{
 

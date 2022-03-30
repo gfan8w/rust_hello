@@ -13,7 +13,7 @@ pub fn main() {
     // 创建连接
     let connection = establish_connection();
     // 查询
-    let results = posts.filter(published.eq(true))
+    let results = posts.filter(published.eq(true)) // posts::published.eq(dsl::now)
         .limit(5)
         .load::<Post>(&connection)
         .expect("Error loading posts");

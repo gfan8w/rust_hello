@@ -1,0 +1,23 @@
+[package]
+name = "actix_web_learn"
+version = "0.1.0"
+edition = "2021"
+
+
+[[example]]
+name = 'responder'
+
+[dependencies]
+actix-web = "2.0"
+actix-rt = "1.0"
+serde = "1.0"
+serde_json = "1.0"
+futures = "0.3"
+derive_more = "0.99.17"
+env_logger = "0.8"
+log = "0.4"
+actix-session = "0.3.0"
+diesel = { version = "1.4.4", features = ["mysql", "r2d2","chrono"] }
+# 时间日期，支持日期格式序列化
+chrono = {verson ="0.4",features = ["serde"]}
+dotenv = "0.15.0"

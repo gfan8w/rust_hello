@@ -28,7 +28,19 @@
       <sourceFolder url="file://$MODULE_DIR$/adhoc_polymorphism_howto_trait/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/adhoc_polymorphism_howto_trait/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/string_to_hex/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/PatriciaTrie/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/microservice/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/rocksdbactixweb/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rocksdbactixweb/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/actix_actor/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/actix_actor/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/actix_web_learn/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/actix_web_learn/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/diesel-learn/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/diesel-raw-sql/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/late-night-rocket/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/todos-graphql-api/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/todos-graphql-api/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
