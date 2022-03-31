@@ -30,6 +30,8 @@ members = [
     'actix_web_learn',
     'actix_actor',
     'diesel-raw-sql',
+    'sqlx-learn',
+    'seaorm-learn',
 
 
 

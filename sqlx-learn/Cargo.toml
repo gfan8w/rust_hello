@@ -1,0 +1,26 @@
+[package]
+name = "sqlx-learn"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[example]]
+name = "PgSample"
+
+
+
+[dependencies]
+# tokio + rustls
+sqlx = { version = "0.5", features = [ "runtime-actix-rustls","postgres", "mysql","chrono", "json", "uuid" ] }
+tokio = { version = "1", features = ["full"] }
+chrono = "0.4"
+uuid = { version = "0.8", features = ["v4", "serde"] }
+actix-web = "4.0.0-beta.19"
+
+
+
+
+
+
+
+

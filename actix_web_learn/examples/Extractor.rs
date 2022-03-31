@@ -89,7 +89,7 @@ async fn main() -> std::io::Result<()> {
                 })
             }))
             .service(web::scope("/extractor")
-                .route("/multiple/{p1}/{p2})", web::get().to(extractor_multiple))
+                .route("/multiple/{p1}/{p2}", web::get().to(extractor_multiple))
                          .route("/path/{user_id}/{friend}", web::get().to(extractor_path))
                          .route("/manual_path/{user_id}/{friend}", web::get().to(extractor_manual_path))
                          .route("/query", web::get().to(extractor_query))

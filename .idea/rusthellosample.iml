@@ -41,6 +41,9 @@
       <sourceFolder url="file://$MODULE_DIR$/late-night-rocket/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/todos-graphql-api/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/todos-graphql-api/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/seaorm-learn/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sqlx-learn/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sqlx-learn/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -3,6 +3,7 @@
 extern crate juniper;
 #[macro_use]
 extern crate diesel;
+
 extern crate dotenv;
 
 use futures::future::Future;
@@ -25,7 +26,7 @@ mod models;
 
 use graphql_schema::{create_schema, Schema};
 
-
+// https://www.section.io/engineering-education/rust-api-with-diesel-orm-and-postgresql/
 ///设置 GraphQL server
 /// graphql是查询引擎。
 /// graphiql 是graphql的查询界面
@@ -73,6 +74,8 @@ fn graphql(
 ///构建一个graphql的查询界面。http://localhost:8080/graphiql
 /// 在面板的左边输入：
 /*
+
+查询:
  query GetTodos{
      todos{
          id
@@ -80,6 +83,28 @@ fn graphql(
          completed
      }
   }
+
+ 变更：
+ mutation CreateTodoMutation($data: NewTodo!) {
+    createTodo(data: {
+        "title":"Ride a bike",
+        "completed":false
+    }) {
+        id
+        title
+        completed
+    }
+}
+
+变更2：
+mutation  {
+    insertTodo(tit:"Ride a bike",comp:false) {
+        id
+        title
+        completed
+    }
+}
+
  */
 fn graphiql() ->HttpResponse {
     let html = graphiql_source("http://localhost:8080/graphql");
@@ -88,7 +113,7 @@ fn graphiql() ->HttpResponse {
 
 
 pub fn establish_connection() -> PgConnection {
-    dotenv().ok();
+    dotenv::from_filename(".todos-graphql-api.env").expect("can't fine `.todos-graphql-api.env` file");
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
     PgConnection::establish(&database_url).expect(&format!("failed to connect to {}",database_url))
 }
