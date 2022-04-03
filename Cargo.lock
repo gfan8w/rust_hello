@@ -1011,7 +1011,10 @@ name = "asynctokio"
 version = "0.1.0"
 dependencies = [
  "chrono",
+ "env_logger 0.8.4",
  "futures 0.3.19",
+ "log",
+ "reqwest",
  "tokio 1.15.0",
 ]
 
@@ -5461,6 +5464,10 @@ dependencies = [
  "walkdir",
  "yaml-rust",
 ]
+
+[[package]]
+name = "tcp_server"
+version = "0.1.0"
 
 [[package]]
 name = "tempfile"

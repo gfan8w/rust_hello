@@ -44,6 +44,8 @@
       <sourceFolder url="file://$MODULE_DIR$/seaorm-learn/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/sqlx-learn/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/sqlx-learn/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tcp_server/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tcp_server/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

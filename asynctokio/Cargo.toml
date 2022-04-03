@@ -34,3 +34,8 @@ name = "futures_combinator1"
 tokio = { version = "1", features = ["full"] } # 异步处理库
 chrono = "0.4"
 futures = { version = "0.3", features = ["thread-pool"] }
+env_logger = "0.8"
+log = "0.4"
+reqwest = "0.11"
+
+
