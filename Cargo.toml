@@ -33,9 +33,7 @@ members = [
     'sqlx-learn',
     'seaorm-learn',
     'tcp_server',
-
-
-
+    'web3',
 
 
 

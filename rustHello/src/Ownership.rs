@@ -50,6 +50,9 @@ pub fn run () {
 
     //演示 i32的vec 和 String的vec的区别
     demo_modify_vec();
+
+    //Some里的值的所有权会移动
+    some_inner_value_moved();
 }
 
 // 该函数获取了一个string和它的所有权，最后又返回一个string和它的所有权，并返回一个i32的所有权给调用者
@@ -252,8 +255,33 @@ borrow、move、copy 3个语义要清晰
 6) 引用的生命周期不能超出值的生命周期。
 */
 
+///Some做match时，里面的值是移动走的，如果不移动，要加`ref`，
+/// 如果修改Some里面值，所有权还在Some里面？
+fn some_inner_value_moved() {
+    let x = Some(String::from("hello"));
+    match x {
+        Some(ref a) => {println!("match a: {}",a)}, //永远匹配到这个arm， 要加条件： if a.len()>10，才会匹配到 b； a和b这里是变量定义
+        Some(ref b) =>{println!("match b: {}",b)},
+        None => {println!("match none")},
+    }
 
 
+    let mut x = Some(String::from("world"));
+    if let Some(_) = x {  // 如果把 `_` 替换为 _s  就会发生所有权的移动，x后续无法使用，但如果使用 `_` 就不会发生所有权移动
+        println!("find a string")
+    }
+
+    if let Some(_) =  x {  // 如果把 `_` 替换为 _s  就会发生所有权的移动，x后续无法使用，但如果使用 `_` 就不会发生所有权移动
+        println!("find a string")
+    }
+
+    if let Some(c) =  &mut x {   //修改Some内部的值，原来的变量还存在
+        *c= String::from("good");
+        println!("find a string")
+    }
+
+    println!("modified x in some is :{:?}",x);
+}
 
 
 

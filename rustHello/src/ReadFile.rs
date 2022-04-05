@@ -126,6 +126,9 @@ impl ToDo {
 }
 
 pub fn run(){
+
+    std::env::set_var("complete", "hello");
+
     // 运行时 需要加参数
     let action = std::env::args().nth(1).expect("please specify an action：add or complete");
     let item= std::env::args().nth(2).expect("please specify and value: any string");

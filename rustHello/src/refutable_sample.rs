@@ -2,7 +2,7 @@
 
 
 
-
+/// refutability 的 反义词是 satisfiability （无可辩驳性 <=> 满足性 ），参考：http://xion.io/post/code/rust-patterns-ref.html
 pub fn run(){
 
     println!("refutabe test");
@@ -29,9 +29,9 @@ fn test(){
     for name in pets2.iter() {
         // match表达式是refutable的，不能用外面的变量，要用的话只能写在if后面
         match name {
-            // &ferris => {                         // 这段代码有问题，全部匹配到了这个地方，IDE 还提示 ferris1144 未用到 奇怪 ？？？？？
-            temp if(*temp)==ferris => {
-                println!("hello** , I am rustacean.")
+             //ferris => {                         // 这段代码有问题，全部匹配到了这个地方，IDE 还提示 'matches any value', 搜 `ferris1144` 快速定位到编译waring处。未用到 奇怪 ？？？？？
+            temp if *temp==ferris => {
+                println!("hello** , I am rustacean.{}",temp)
             }
             _ => {println!("hello- {}",name)}  //最后一个分支 arm 必须是 irrefutable的，不可辩驳的 就是覆盖所有情况的意思
         }
@@ -63,8 +63,23 @@ fn test(){
 
 }
 
-
-
+// 该函数会报错： cannot move out of borrowed content， 在新版本上报错 cannot move out of `*name` which is behind a shared reference，
+// 因为 iter 返回的是一个 借用，无所有权，name类型是 &String，在match中， name 到 &temp过程中， name的值移动到 temp， 这是不允许的，因为name无所有权。
+fn test_2() {
+    let pets2 = vec!["Bob".to_string(), "Ferris".to_string(), "Frank".to_string()];
+    let ferris = "Ferris".to_string();
+    for name in pets2.iter() {
+        // match表达式是refutable的，不能用外面的变量，要用的话只能写在if后面
+        match name {
+            // 如果这里用 &temp，则会报错：cannot move out of `*name` which is behind a shared reference，只能改为 在 if 中  *temp 解引用获取到内容来做比较
+            //&temp if temp == ferris => {
+             temp if *temp == ferris => {
+                println!("hello** , I am rustacean")
+            }
+            _ => { println!("hello") }  //最后一个分支 arm 必须是 irrefutable的，不可辩驳的 就是覆盖所有情况的意思
+        }
+    }
+}
 
 
 

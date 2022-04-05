@@ -31,6 +31,7 @@ fn match_Literal_variable(){
 /// 有一个麻烦的地方时 match块内会开启一个新的代码块，该代码块内部的变量会遮盖同名的外部变量，
 /// 例如 match 内部的`y` 是一个新变量，跟外部的 y=5的那个变量是没有关系的。所以当x =Some(..)的时候， 总是能匹配到 Some(y)，如果 x =None，则无法匹配到第二个条件，匹配到的是最后一个
 /// 最后一个匹配分支里 使用x，因为我们没有在match块里定义 x，所以x 还是外面的x。
+/// refutability 的 反义词是 satisfiability （无可辩驳性 <=> 满足性 ），参考：http://xion.io/post/code/rust-patterns-ref.html
 //一般来说 match的匹配臂是要求refutable的（即必须有可能匹配到false，必须留有余地给别人），除了最后一个分支是兜底，是可以为irrefutable无可辩驳的永远匹配到true，最后一个要兜底
 fn match_named_variable(){
     let x =Some(10);
@@ -119,12 +120,12 @@ fn match_extra_cond_match_guards() {
 
 
     let mut x = String::from("hel");
-    x+="lo";
+    x+="lol";
     let x_str =x.as_str(); //动态构造一个 hello
     let y="hellob";
     match x_str {
-        "hello"  => println!("&y alway match here, can't go to other arm：{}",y),
-        _ => println!("anything")
+        "hello"  => println!("&y alway match here, can't go to other arm：{}",y), //字变量
+        _ => println!("anything string")
     }
 
 

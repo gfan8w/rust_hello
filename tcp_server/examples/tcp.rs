@@ -8,33 +8,23 @@ use std::time;
 
 fn handle_client(mut stream: TcpStream) -> Result<()>{
     let mut buf = [0; 500]; //创建一个缓冲区，用来保存数据
-
         while match stream.read(&mut buf) { //读取数据，如果读取数据异常直接返回
             Ok(n) if n==0 => {
-                //如果读取到的长度是0，表示关闭连接，函数返回
-                eprintln!("received 0, end");
-                false
+                false                 //如果读取到的长度是0，表示关闭连接，函数返回
             },
             Ok(n) => {
-                //打印接收到的字符
-                println!("received:{}", String::from_utf8_lossy(&buf[0..n]));
-                //将读取到的内容返写到客户端去
-                stream.write(&buf[..n])?;
-                // let a =File::open("sdfasdfasdf.txt")?;  //人为制造错误
+                println!("received:{}", String::from_utf8_lossy(&buf[..n]));
+                stream.write(&buf[..n])?; //将读取到的内容返写到客户端去
                 true
             },
             Err(e) => {
-                eprintln!("socket read error:{:?}",e);
-                false
+                false  //遇到错误，返回
             },
         }{}
-
     Ok(()) //没有异常，返回 void
 }
 
 pub fn tcp_server() -> std::io::Result<()> {
-    println!("start tcp server");
-
     //在本地8080端口创建TCP连接
     let addr = "127.0.0.1:8080".parse::<SocketAddr>().unwrap();
     let listener = TcpListener::bind(addr)?;

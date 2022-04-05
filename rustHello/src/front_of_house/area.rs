@@ -22,6 +22,9 @@ struct Cycle{
 
 
 impl CalculateArea for Triangle {
+    // 函数参数 是self，还是 &self的区别：
+    // 1）如果参数是self，说明该函数会消耗self对象，self在该函数调用后，就移动不存在了
+    // 2) 如果是 &self，则不会发生
     fn calc(&self) -> f64 {
         return (self.bottom * self.height) as f64;
     }
