@@ -32,4 +32,8 @@ pub fn say_many_times() {
 pub fn main() {
     say_many_times();
     world_only_once();
+
+    let mut ave = vec!["hel".to_string(), "ok".to_string(), "sub".to_string()];
+    ave.retain(|v| v!="hel");
+    println!("{:?}",ave);
 }

@@ -1,7 +1,5 @@
 
 
-
-
 pub fn run(){
     println!("test match patten");
     match_Literal_variable();
@@ -10,7 +8,7 @@ pub fn run(){
     match_extra_cond_match_guards();
     match_rang_at();
 
-
+    match_person();
 
 }
 
@@ -104,9 +102,12 @@ fn match_extra_cond_match_guards() {
         Node => println!("get none")
     }
 
+
     let z=false;
     match y {
-        2 |3 |4 | 5 if z => {println!("matched y")},  //这里 2|3|4|5 是模式匹配， if 后面不是模式匹配，这里相当于 (2|3|4|5) if z =>... 而不是  2|3|4| (5 if z)
+        2 |3 |4 | 5 if z => {println!("matched y")},
+        //这里 2|3|4|5 是模式匹配， if 后面不是模式匹配，
+        // 这里相当于 (2|3|4|5) if z =>... 而不是  2|3|4| (5 if z)
         _ => println!("no matched y")
     }
 
@@ -114,7 +115,11 @@ fn match_extra_cond_match_guards() {
     let x = 5;
     let y=0;
     match x {
-        y  => println!("alway match here, can't go to other arm：{}",y), // 这里会有一个编译告警，无法触达下面的分支，这里100%匹配，这里的y遮盖了外部的y，这句话是个模式匹配，捕获到的变量放到y里，而不是说要匹配 x=0
+        y  => println!("alway match here, can't go to other arm：{}",y),
+        // 这里会有一个编译告警，无法触达下面的分支，这里100%匹配，
+        // 这里的y遮盖了外部的y，这句话是个模式匹配，
+        // 捕获到的变量放到y里，而不是说要匹配 x=0
+
         _ => println!("anything")
     }
 
@@ -143,14 +148,62 @@ fn match_rang_at() {
 
     //新建变量id_variable，在模式匹配中新建变量
     match msg {
-        MatchMessage::Hello { id: id_variable @ 1..=10 } => { println!("match:{}", id_variable) }, // 这里能访问匹配到的值, @ 可以保存匹配到的值到一个变量中
-        MatchMessage::Hello { id: 11..=50 } => { println!("Found an id in another range") }, // 这里无法拿到匹配到的值，因为id 可能是 10~50里的任意一个
-        MatchMessage::Hello { id } => { println!("Found some other id: {}", id) }       // 因为这里没有指定范围，可以拿到id的值
+        MatchMessage::Hello { id: id_variable @ 1..=10 } => { println!("match:{}", id_variable) },
+        // 这里能访问匹配到的值, @ 可以保存匹配到的值到一个变量中
+
+        MatchMessage::Hello { id: 11..=50 } => { println!("Found an id in another range") },
+        // 这里无法拿到匹配到的值，因为id 可能是 10~50里的任意一个
+
+        MatchMessage::Hello { id } => { println!("Found some other id: {}", id) }
+        // 因为这里没有指定范围，可以拿到id的值
+
         MatchMessage::Hello { id } => { println!("Found some other id: {}", id) }
     }
 }
 
 // 参考：https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html#-bindings
+
+#[derive(Debug)]
+enum MatchPerson {
+    Name {surname : String},
+    Card {no: u32},
+
+}
+
+fn match_person() {
+    let a_person = MatchPerson::Name{surname: "rust".into()};
+    let ref a_person_ref = a_person; // 等同于 let a_person_ref = &a_person;
+    match &a_person_ref {
+        &MatchPerson::Name { ref surname } => println!("match person name:{}", surname),
+        &MatchPerson::Card {no} =>println!("match person card id:{}",no),
+    }
+    println!("person:{:?}", a_person);
+}
+
+
+fn process_name_ref(name: &str) {
+    println!("match person name:{}",name);
+}
+
+
+
+
+
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_match_person(){
+        match_person();
+    }
+
+}
+
+
+
+
 
 
 

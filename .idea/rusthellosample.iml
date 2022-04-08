@@ -47,7 +47,8 @@
       <sourceFolder url="file://$MODULE_DIR$/sqlx-learn/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tcp_server/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tcp_server/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/web3/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/web3_sample/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/web3_sample/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

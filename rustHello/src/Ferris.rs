@@ -71,4 +71,5 @@ fn test2() {
     println!("event_vec::{:?}:", event_vec);
     map.remove(&7);
     println!("map::{:?}:", map);
+
 }

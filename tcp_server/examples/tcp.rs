@@ -13,9 +13,19 @@ fn handle_client(mut stream: TcpStream) -> Result<()>{
                 false                 //如果读取到的长度是0，表示关闭连接，函数返回
             },
             Ok(n) => {
-                println!("received:{}", String::from_utf8_lossy(&buf[..n]));
-                stream.write(&buf[..n])?; //将读取到的内容返写到客户端去
-                true
+
+                // check the message is Ctrl + C or not
+                if &buf[..n] == [255, 244, 255, 253, 6] {
+                    // print out the exit message
+                    println!("received:{:?}", String::from_utf8_lossy(&buf[..n]));
+                    println!("{} received exit signal", stream.peer_addr().unwrap());
+                    // break the loop
+                    false
+                }else {
+                    println!("received:{:?}", String::from_utf8(Vec::from(&buf[..n])));
+                    stream.write(&buf[..n])?; //将读取到的内容返写到客户端去
+                    true
+                }
             },
             Err(e) => {
                 false  //遇到错误，返回
