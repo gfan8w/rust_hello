@@ -49,6 +49,7 @@ mod trait_object;
 mod important_trait;
 mod closure_sample;
 mod smart_pointer;
+mod Lifetime2;
 
 // ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 

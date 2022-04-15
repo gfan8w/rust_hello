@@ -188,8 +188,6 @@ fn process_name_ref(name: &str) {
 
 
 
-
-
 #[cfg(test)]
 mod test {
     use super::*;
@@ -197,6 +195,10 @@ mod test {
     #[test]
     fn test_match_person(){
         match_person();
+
+        let a ="helo".to_string().as_str().len();
+        println!("a size:{}",a);
+
     }
 
 }

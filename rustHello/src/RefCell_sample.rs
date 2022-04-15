@@ -153,7 +153,26 @@ fn run_modified_node(){
 &mut x 编译时编译器可以检查是否违背所有权规则，borrow_mut() 是个函数，只有运行到这一刻，才知道是否违背所有权规则。
 */
 
+#[cfg(test)]
+mod test1 {
+    use super::*;
 
+    #[test]
+    fn test_Node_Rc_RefCell () {
+        run_modified_node();
+    }
+
+    #[test]
+    fn test_simple_starter () {
+        simple_starter();
+    }
+
+
+    #[test]
+    fn test_mut_object_move_to_scope_drop () {
+        mut_object_move_to_scope_drop();
+    }
+}
 
 
 

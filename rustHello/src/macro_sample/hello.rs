@@ -5,15 +5,15 @@
 //
 // item ——一个项（item），像一个函数，结构体，模块等。
 // block ——一个块 （block）（即一个语句块或一个表达式，由花括号所包围）
-// stmt —— 一个语句（statement）
+// stmt —— 一个语句（statement）。比如一个赋值语句。
 // pat ——一个模式（pattern）
 // expr —— 一个表达式（expression）
-// ty ——一个类型（type）
-// ident—— 一个标识符（indentfier）
+// ty ——一个类型（type）。比如 Vec。
+// ident—— 一个标识符（indentfier）。比如一个变量名。
 // path —— 一个路径（path）（例如，foo，::std::mem::replace，transmute::<_, int>，...）
-// meta —— 一个元数据项；位于#[...]和#![...]属性
-// tt——一个词法树
-// vis——一个可能为空的Visibility限定词
+// meta —— 一个元数据项；一般是在 #[...]  和  #![...]  属性内部的数据。
+// tt—— 一个词法树。单个的 token 树。
+// vis——一个可能为空的Visibility修饰符。比如 pub、pub(crate)。
 ///
 
 

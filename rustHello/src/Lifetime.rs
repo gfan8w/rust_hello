@@ -12,9 +12,13 @@ fn run_temporary_lifetime(){
 
 
     // 这个会报错：- temporary value is freed at the end of this statement
+    // creates a temporary which is freed while still in use
+    // note: consider using a `let` binding to create a longer lived value
+    //
     // `hello`的所有权已经消失
+
     //let b =String::from("hello").as_str();
-    //println!("a:{}",b);
+    //println!("b:{}",b);
 
 }
 

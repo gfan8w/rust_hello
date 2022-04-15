@@ -50,7 +50,11 @@ impl Node {
     }
 
     pub fn get_next(&self) -> Option<Rc<Node>> {
-        self.next.as_ref().map(|n| n.clone())
+        //self.next.as_ref().map(|n| n.clone())
+        let a =self.next.as_ref();
+        let b =a.unwrap();
+        Some(b.clone())
+        //map的参数要求是self，会移动self，我们这里不能移动next，编译报错：cannot move out of `self.next` which is behind a shared reference
         //self.next.map(|n| Rc::clone(&n))
     }
 }
@@ -66,15 +70,15 @@ fn run_node(){
 
     node3.update_next(Rc::new(node4));
 
-    node1.update_next(Rc::new(node3));
+    node1.update_next(Rc::new(node3)); // node3 在这里move了
 
-    node2.update_next(node1.get_next().unwrap());
+    node2.update_next(node1.get_next().unwrap()); //这里node1返回的node3是一个Rc的clone
 
     let node5 = Node::new(5);
 
     //无法再修改node3
-    //node3.update_next(Rc::new(node5));
-    //let mut node33 = node1.get_next().unwrap();
+    //node3.update_next(Rc::new(node5));            // node3 在上面已经move走了，无法再用node3，必须间接通过node1.get_next() 来获得node3
+    //let mut node33 = node1.get_next().unwrap(); //这里很辛苦的拿到了node3，可是Rc没有试下DerefMut 无法拿到可变引用，就无法执行下面的update_next
     //node33.update_next(Rc::new(node5));
 
     println!("node1: {:?}, node2: {:?}", node1, node2);
@@ -82,7 +86,15 @@ fn run_node(){
 }
 
 
+#[cfg(test)]
+mod test1 {
+    use super::*;
 
+    #[test]
+    fn test_Node_Rc () {
+        run_node();
+    }
+}
 
 
 
