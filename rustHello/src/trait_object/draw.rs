@@ -60,3 +60,14 @@ pub fn run() {
     screen.run();
 
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn it_works() {
+        run()
+    }
+}

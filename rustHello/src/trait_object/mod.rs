@@ -3,6 +3,8 @@ mod draw;
 mod formatter;
 mod look_into_vtable;
 mod SentenceIter;
+mod playable;
+mod foo;
 
 use std::fs::File;
 use std::io::Write;

@@ -1,0 +1,38 @@
+[package]
+name = "unconstrained_type_parameter"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[example]]
+name = "hello_1"
+
+[[example]]
+name = "hello_2"
+
+[[example]]
+name = "hello_3"
+
+[[example]]
+name = "hello_3_1"
+
+[[example]]
+name = "hello_4"
+
+[[example]]
+name = "hello_5"
+
+[[example]]
+name = "hello_6"
+
+[[example]]
+name = "hello_2_associate_type"
+
+[[example]]
+name = "hello_2_phantom"
+
+[[example]]
+name = "myfn"
+
+[dependencies]

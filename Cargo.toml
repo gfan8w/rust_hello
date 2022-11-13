@@ -36,7 +36,10 @@ members = [
     'web3_sample',
     'leetcode',
     'pinsample',
-    'hyper_sample'
+    'hyper_sample',
+    'hyper-minimal-web',
+    'unconstrained_type_parameter',
+    'trait_inheritance',
 
 
 
