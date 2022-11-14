@@ -5,8 +5,8 @@ use super::Middleware;
 pub struct ResponseTime;
 
 #[async_trait::async_trait]
-impl Middleware for ResponseTime {
-    async fn handle<'a>(&'a self, ctx: Context, next: Next<'a>) -> Response {
+impl<T: Send + Sync + 'static> Middleware<T> for ResponseTime {
+    async fn handle<'a>(&'a self, ctx: Context<T>, next: Next<'a, T>) -> Response {
         let start = Instant::now();
         let method = ctx.request.method().to_string();
         let path = ctx.request.uri().path().to_string();

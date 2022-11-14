@@ -3,7 +3,14 @@ use std::collections::HashMap;
 
 
 fn run_temporary_lifetime(){
-    // 这里没有定义一个临时变量来存放 "hello".to_string()，导致 hello的所有权被立刻释放，导致编译错误
+    /* 这里没有定义一个临时变量来存放 "hello".to_string()，导致 hello的所有权被立刻释放，导致编译错误
+        这个相当于是
+        let y = {
+            x =String::from("hello");
+            &x
+        }
+        返回 &x是不允许的，x活的比y短。
+    */
     //let r1:&String = "hello".to_string().borrow();
     //println!("r1: {:p}", &r1);
 

@@ -9,16 +9,16 @@ pub type Error = Box<dyn std::error::Error + Send + Sync + 'static>;
 
 
 #[derive(Debug)]
-pub struct Context {
-    pub state: AppState,
+pub struct Context<T> {
+    pub state: AppState<T>,
     pub request: Request<Body>,
     pub params: Params,
     pub remote_addr: SocketAddr,
     body_bytes: Option<Bytes>,
 }
 
-impl Context {
-    pub fn new(state: AppState, req: Request<Body>, params: Params, remote_addr: SocketAddr) -> Context {
+impl<A> Context<A> {
+    pub fn new(state: AppState<A>, req: Request<Body>, params: Params, remote_addr: SocketAddr) -> Context<A> {
         Context {
             state,
             request: req,
@@ -43,6 +43,14 @@ impl Context {
 
 /// put your extra data here, if you want to pass data through the http request chain
 #[derive(Clone, Debug)]
-pub struct AppState {
-    pub state_thing: String,
+pub struct AppState<T> {
+    pub data: T,
+}
+
+impl<T: Default> Default for AppState<T> {
+    fn default() -> Self {
+        Self{
+            data: Default::default(),
+        }
+    }
 }

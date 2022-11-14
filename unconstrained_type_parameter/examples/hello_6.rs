@@ -49,7 +49,6 @@ mod ok {
     }
 
 
-
     #[cfg(test)]
     mod test {
         use super::*;

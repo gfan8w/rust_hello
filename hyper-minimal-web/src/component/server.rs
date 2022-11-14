@@ -12,26 +12,27 @@ use super::{Error, Context, AppState, Response, Router, MiddleWare, Middleware, 
 macro_rules! register_method {
     ($method_name: ident, $method_def: expr) => {
         #[allow(unused)] // suppress warning: unused variable， #[allow(unused)] 可以替代 2个：#[warn(unused_variables)]、#[allow(dead_code)]
-        pub fn $method_name(&mut self, path: impl AsRef<str>, handler: impl Handler) {
+        pub fn $method_name(&mut self, path: impl AsRef<str>, handler: impl Handler<T>) {
             self.router.register($method_def, path, handler)
         }
     };
 }
 
-pub struct Server {
-    router: Router,
-    middlewares: MiddleWare,
+pub struct Server<T>{
+    router: Router<T>,
+    middlewares: MiddleWare<T>,
 }
 
-impl Server {
+
+impl<T: Send + Sync+ Default + 'static> Server<T> {
     pub fn new() -> Self {
-        Server {
+        Self{
             router: Router::new(),
-            middlewares: MiddleWare::new(),
+            middlewares: MiddleWare::new()
         }
     }
 
-    pub fn middleware(&mut self, middleware: impl Middleware) {
+    pub fn middleware(&mut self, middleware: impl Middleware<T>) {
         self.middlewares.add(middleware);
     }
 
@@ -47,13 +48,12 @@ impl Server {
 
 
     pub async fn run(self, addr: SocketAddr) -> Result<(), Error> {
-
-        let some_state = "state".to_string();
-
         let Self {
             router,
             middlewares,
         } = self;
+
+        //let some_state = "state".to_string();
 
         let router = Arc::new(router);
         let middlewares = Arc::new(middlewares);
@@ -63,16 +63,11 @@ impl Server {
             let middlewares = middlewares.clone();
             let remote_addr = conn.remote_addr();
 
-            let app_state = AppState {
-                state_thing: some_state.clone(),
-            };
-
-
             async move {
                 Ok::<_, Error>(service_fn(move |req| {
                     let router = router.clone();
                     let middlewares = middlewares.get();
-                    let app_state_inner = app_state.clone();
+                    //let app_state_inner = app_state.clone();
                     async move {
                         let endpoint = router.find(req.uri().path(), &req.method());
 
@@ -81,7 +76,7 @@ impl Server {
                             next_middleware: &middlewares,
                         };
 
-                        let ctx = Context::new(app_state_inner, req, endpoint.params, remote_addr);
+                        let ctx = Context::new(AppState::default(), req, endpoint.params, remote_addr);
 
                         let resp = next.run(ctx).await;
 
@@ -108,7 +103,7 @@ async fn shutdown_signal() {
         .expect("failed to install CTRL+C signal handler");
 }
 
-impl Default for Server {
+impl<T: Send + Sync + Default + 'static> Default for Server<T> {
     fn default() -> Self {
         Self::new()
     }

@@ -49,6 +49,18 @@
       <sourceFolder url="file://$MODULE_DIR$/tcp_server/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/web3_sample/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/web3_sample/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pinsample/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pinsample/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hyper_sample/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hyper-minimal-web/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hyper-minimal-web/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/trait_inheritance/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/unconstrained_type_parameter/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/unconstrained_type_parameter/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hyper_min/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hyper_min/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
