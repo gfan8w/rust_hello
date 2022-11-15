@@ -41,7 +41,7 @@ members = [
     'unconstrained_type_parameter',
     'trait_inheritance',
     'hyper_min',
-
+    'redlock_sample',
 
 
 

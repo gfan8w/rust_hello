@@ -1,0 +1,17 @@
+[package]
+name = "redlock_sample"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[example]]
+name = "hello"
+
+[[example]]
+name = "basic"
+
+[dependencies]
+redlock = "1.2.0"
+redis = { version = "0.20.2", features = ["tls"] }
+rand = "0.8.4"

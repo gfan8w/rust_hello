@@ -1,0 +1,30 @@
+version: '3'
+
+volumes:
+    redis_data: { }
+
+services:
+
+    redis-master:
+        image: redis:6.2
+        ports:
+            - 6379:6379
+        volumes:
+            - redis_data:/var/lib/redis/data
+
+    redis-slave-1:
+        image: redis:6.2
+        ports:
+            - 16379:6379
+        volumes:
+            - ./redis-slave.conf:/usr/local/etc/redis/redis.conf
+        command: redis-server /usr/local/etc/redis/redis.conf
+
+    redis-slave-2:
+        image: redis:6.2
+        ports:
+            - 26379:6379
+        volumes:
+            - ./redis-slave.conf:/usr/local/etc/redis/redis.conf
+        command: redis-server /usr/local/etc/redis/redis.conf
+
