@@ -40,7 +40,7 @@ fn test(){
 
     let pets =vec!["Bob","Ferris","Frank"];
     for name in pets.iter() {             // iter对每个元素是借用，原始集合不会改变，后续还可以使用原始集合。所以 name是 引用，"Ferris"前要加 &
-        match name {
+        match name {                            // 如果pets里面是Object 对象，更有讲究，参见：iter_ownership_sample
             &"Ferris" => {
                 println!("There** is a rustacean among us! {}",name);
             }

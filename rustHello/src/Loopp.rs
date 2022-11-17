@@ -9,6 +9,11 @@ pub fn run() {
         //data.push(*item+1)         //这里会有问题，因为又一次使用了可变引用。不允许2次使用可变引用
     }
 
+    /*
+    iter()的签名是: iter(&self) 是引用
+    into_iter()的签名是 into_iter(self)， 把自己移动进去了
+    iter_mut() 的签名是 iter_mut(&mut self)， 把可变的引用移动进去
+    */
 
 
 
@@ -111,6 +116,7 @@ pub fn run() {
     let least = ones.min().unwrap(); // Oh no! An infinite loop!
     // `ones.min()` causes an infinite loop, so we won't reach this point!
     println!("The smallest number one is {}.", least);*/
+
 
 }
 

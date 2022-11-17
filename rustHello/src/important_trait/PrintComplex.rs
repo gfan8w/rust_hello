@@ -114,10 +114,13 @@ pub fn run (){
         City{name:"Vancouver",  lat:49.25,      lon:-123.1}     ].iter() {  // iter是借用集合里的每个元素，集合不变，后续还能使用
 
         //注意，这里用了iter(), 每次循环时的city是一个指针，是引用
+        //let a = *city; // 这里无法把所有权move到a上去
 
         // 调用自定义的Display
         println!("{}",*city);
 
+        let b = city;
+        println!("{}",b);
     }
 
 

@@ -42,7 +42,7 @@ members = [
     'trait_inheritance',
     'hyper_min',
     'redlock_sample',
-
+    'iter_ownership_sample',
 
 
 ]
