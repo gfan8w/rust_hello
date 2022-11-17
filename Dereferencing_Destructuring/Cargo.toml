@@ -1,0 +1,23 @@
+[package]
+name = "Dereferencing_Destructuring"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[example]]
+name = "hello"
+
+[[example]]
+name = "things"
+
+[[example]]
+name = "mut_ref_desc"
+
+[[example]]
+name = "mut_ref"
+
+
+
+
+[dependencies]

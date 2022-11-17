@@ -11,7 +11,7 @@ fn run_temporary_lifetime(){
         }
         返回 &x是不允许的，x活的比y短。
     */
-    //let r1:&String = "hello".to_string().borrow();
+    //let r1:&String = "hello".to_string().borrow();   // 生命周期存在不存在，简单的办法 就是 你看不看得见那个变量？ 你现在看不到，就是不存在，那编译失败
     //println!("r1: {:p}", &r1);
 
     let a =&String::from("hello");  //这个可以
