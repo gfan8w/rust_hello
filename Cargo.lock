@@ -17,6 +17,21 @@ name = "PatriciaTrie"
 version = "0.1.0"
 
 [[package]]
+name = "UseWhoAmI"
+version = "0.1.0"
+dependencies = [
+ "WhoAmI",
+]
+
+[[package]]
+name = "WhoAmI"
+version = "0.1.0"
+dependencies = [
+ "quote 1.0.10",
+ "syn 1.0.82",
+]
+
+[[package]]
 name = "ab_glyph_rasterizer"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4674,6 +4689,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2f84e92c0f7c9d58328b85a78557813e4bd845130db68d7184635344399423b1"
 dependencies = [
  "unicode-xid 0.2.2",
+]
+
+[[package]]
+name = "proc-macro2_sample"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2 1.0.34",
+ "quote 1.0.10",
+ "syn 1.0.82",
 ]
 
 [[package]]
