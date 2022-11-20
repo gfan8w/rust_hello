@@ -31,6 +31,12 @@ name = "futures_combinator1"
 [[example]]
 name = "async_repeat_task"
 
+[[example]]
+name = "async_rwlock"
+
+[[example]]
+name = "Concurrent_vs_Parallel"
+
 [dependencies]
 tokio = { version = "1", features = ["full"] } # 异步处理库
 chrono = "0.4"
