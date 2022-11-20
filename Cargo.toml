@@ -47,6 +47,7 @@ members = [
     'procedural_macro/WhoAmI',
     'procedural_macro/UseWhoAmI',
     'procedural_macro/proc-macro2_sample',
+    'rayon_sample',
 
 
 
