@@ -51,6 +51,7 @@ mod closure_sample;
 mod smart_pointer;
 mod Lifetime2;
 mod use_rust_keyword_in_code;
+mod global_static_hashmap;
 
 // ^^ 上面这些 ，只是把本级crate下的mod类包含进来，因为一个crate下的 main.rs 或 lib.rs是汇总文件
 

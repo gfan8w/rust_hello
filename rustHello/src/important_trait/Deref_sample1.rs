@@ -1,5 +1,7 @@
 use std::ops::Deref;
 
+// Deref coercions Deref强制类型转换
+
 struct MyBox<T>(T);
 
 impl<T> Deref for MyBox<T> {
